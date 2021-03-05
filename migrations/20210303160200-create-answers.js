@@ -12,6 +12,7 @@ module.exports = {
                 type: Sequelize.TEXT
             },
             category_id: {
+                allowNull: false,
                 type: Sequelize.STRING,
                 references: {
                     model: 'Categories',
@@ -19,6 +20,7 @@ module.exports = {
                 }
             },
             user_id: {
+                allowNull: false,
                 type: Sequelize.STRING,
                 references: {
                     model: 'Users',
@@ -26,6 +28,7 @@ module.exports = {
                 }
             },
             question_id: {
+                allowNull: false,
                 type: Sequelize.STRING,
                 references: {
                     model: 'Questions',

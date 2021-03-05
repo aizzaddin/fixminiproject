@@ -11,6 +11,7 @@ app.set('view engine', 'ejs');
 
 const landingPageRoute = require('./Routes/landingPageRoute')
 const authRoute = require('./Routes/authRoute')
+const dashboardRoute = require('./routes/dashboardRoute')
 app.use(landingPageRoute, authRoute)
 
 app.use(function (error, req, res, next) {
