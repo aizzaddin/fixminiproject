@@ -2,17 +2,26 @@
     margin: 0;
     background-color: #e5e5e5;
     overflow-x: hidden;
-
 }
 
-#contenRegis,
+#leftPicture {
+    height: 708px;
+    width: 932px;
+    left: -212px;
+}
+
 #contenLogin {
-    margin: 96px 140px 48px 110px;
+    margin: 143px 165px 48px 110px;
+}
+
+#contenRegis {
+    margin: 96px 165px 48px 110px;
 }
 
 #valUser,
 #valMail,
-#verPass {
+#verPass,
+#valPass {
     font-family: Roboto;
     font-size: 12px;
     font-style: normal;
@@ -21,6 +30,10 @@
     letter-spacing: 0.005em;
     text-align: left;
     color: transparent;
+}
+
+#valPass {
+    color: #2C448C;
 }
 
 #text {
@@ -62,16 +75,6 @@
 
 }
 
-#valPass {
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: 0.005em;
-    text-align: left;
-    color: #2C448C;
-}
 
 #inputUser,
 #inputMail,
@@ -91,10 +94,6 @@
     background-color: transparent;
 }
 
-.form-control:active {
-    border: none;
-}
-
 .layer-1 {
     width: 80px;
     height: 80px;
@@ -111,25 +110,26 @@
     width: 100%;
     left: 0px;
     top: 0px;
-    border-radius: 15px;
 }
+
 
 #btnSubmited {
     margin-top: 30px;
+    border-radius: 15px;
 }
 
 #btnSubmited:hover {
     background-color: #2C448C;
 }
 
-
-.form-control:focus {
-    border: none;
+#btnSubmited:focus {
+    background-color: #84ACF8;
     outline: none;
     box-shadow: none;
 }
 
-#btnSubmited:focus {
+.form-control:focus {
+    border: none;
     outline: none;
     box-shadow: none;
 }

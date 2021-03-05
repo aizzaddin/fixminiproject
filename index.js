@@ -9,21 +9,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 
-const indexHome = require('./routes/home')
-const indexRegister = require('./routes/register')
-const indexLogin = require('./routes/login')
-const indexQuestions = require('./routes/questions')
+const landingPageRoute = require('./Routes/landingPageRoute')
+const authRoute = require('./Routes/authRoute')
+app.use(landingPageRoute, authRoute)
 
-app.use('/', indexHome)
-app.use('/register', indexRegister)
-app.use('/login', indexLogin)
-app.use('/questions', indexQuestions)
-app.use('/api', require('./routes/authRoute'))
-app.use('/category', require('./routes/categoryRoute'))
-app.use('/question', require('./routes/questionRoute'))
+app.use(function (error, req, res, next) {
+    res.send(error)
+})
 
-
-const port = process.env.PORT
+const port = process.env.PORT || 3000 
 app.listen(port, () => {
-    console.log(`Server is listening to http://localhost:${port}`);
+    console.log(`yeee web server nya udah jalan di http://localhost:${port}`);
 })

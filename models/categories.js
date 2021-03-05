@@ -11,10 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Questions, {
+        foreignKey: "category_id"
+      }),
+      this.hasMany(models.Answers, {
+        foreignKey: "category_id"
+      })
     }
   };
   Categories.init({
-    category: DataTypes.STRING
+    program_studi: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Categories',
