@@ -8,6 +8,7 @@ module.exports = {
                 type: Sequelize.STRING(22)
             },
             program_studi: {
+                allowNull: false,
                 type: Sequelize.STRING
             },
             createdAt: {

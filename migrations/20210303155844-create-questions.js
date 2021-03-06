@@ -7,10 +7,16 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.STRING(22)
             },
+            title: {
+                allowNull: false,
+                type: Sequelize.STRING
+            },
             question: {
+                allowNull: false,
                 type: Sequelize.TEXT
             },
             category_id: {
+                allowNull: false,
                 type: Sequelize.STRING,
                 references: {
                     model: 'Categories',
@@ -18,6 +24,7 @@ module.exports = {
                 }
             },
             user_id: {
+                allowNull: false,
                 type: Sequelize.STRING,
                 references: {
                     model: 'Users',

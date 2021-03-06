@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Questions.init({
+    title: DataTypes.STRING,
     question: DataTypes.TEXT,
     category_id: DataTypes.STRING,
     user_id: DataTypes.STRING

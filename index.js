@@ -11,11 +11,17 @@ app.set('view engine', 'ejs');
 
 const landingPageRoute = require('./Routes/landingPageRoute')
 const authRoute = require('./Routes/authRoute')
+const dashboardRoute = require('./routes/dashboardRoute')
+const answerRoute = require('./routes/answerRoute')
 app.use(landingPageRoute, authRoute)
 
 app.use(function (error, req, res, next) {
     res.send(error)
 })
+
+app.use(dashboardRoute)
+
+app.use(answerRoute)
 
 const port = process.env.PORT || 3000 
 app.listen(port, () => {
