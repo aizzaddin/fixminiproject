@@ -13,7 +13,7 @@ module.exports = {
             },
             category_id: {
                 allowNull: false,
-                type: Sequelize.STRING,
+                type: Sequelize.STRING(22),
                 references: {
                     model: 'Categories',
                     key: 'id'
@@ -21,7 +21,7 @@ module.exports = {
             },
             user_id: {
                 allowNull: false,
-                type: Sequelize.STRING,
+                type: Sequelize.STRING(22),
                 references: {
                     model: 'Users',
                     key: 'id'
@@ -29,7 +29,7 @@ module.exports = {
             },
             question_id: {
                 allowNull: false,
-                type: Sequelize.STRING,
+                type: Sequelize.STRING(22),
                 references: {
                     model: 'Questions',
                     key: 'id'
