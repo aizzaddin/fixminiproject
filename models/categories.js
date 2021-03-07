@@ -20,7 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Categories.init({
-    program_studi: DataTypes.STRING
+    kategori: DataTypes.STRING,
+    program_studi: DataTypes.STRING,
+    mata_kuliah: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Categories',
