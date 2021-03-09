@@ -11,6 +11,9 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.TEXT
             },
+            reference: {
+                type: Sequelize.STRING
+            },
             category_id: {
                 allowNull: false,
                 type: Sequelize.STRING(22),

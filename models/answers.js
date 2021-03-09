@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Answers.init({
     answer: DataTypes.TEXT,
+    reference:DataTypes.STRING,
     category_id: DataTypes.STRING,
     user_id: DataTypes.STRING,
     question_id: DataTypes.STRING

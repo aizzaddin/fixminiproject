@@ -13,6 +13,10 @@ const landingPageRoute = require('./Routes/landingPageRoute')
 const authRoute = require('./Routes/authRoute')
 const dashboardRoute = require('./routes/dashboardRoute')
 const answerRoute = require('./routes/answerRoute')
+const subscriptionRoute = require ('./routes/subscriptionRoute')
+const serviceRoute = require ('./routes/serviceRoute')
+const transactionRoute = require ('./routes/transactionRoute')
+
 app.use(landingPageRoute, authRoute)
 
 app.use(function (error, req, res, next) {
@@ -20,8 +24,11 @@ app.use(function (error, req, res, next) {
 })
 
 app.use(dashboardRoute)
-
 app.use(answerRoute)
+app.use(subscriptionRoute)
+app.use(serviceRoute)
+app.use(transactionRoute)
+
 
 const port = process.env.PORT || 3000 
 app.listen(port, () => {
