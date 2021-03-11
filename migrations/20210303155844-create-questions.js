@@ -15,11 +15,30 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.TEXT
             },
+            media: {
+                type: Sequelize.STRING
+            },
             category_id: {
                 allowNull: false,
                 type: Sequelize.STRING(22),
                 references: {
                     model: 'Categories',
+                    key: 'id'
+                }
+            },
+            departement_id: {
+                allowNull: false,
+                type: Sequelize.STRING(22),
+                references: {
+                    model: 'Departements',
+                    key: 'id'
+                }
+            },
+            course_id: {
+                allowNull: false,
+                type: Sequelize.STRING(22),
+                references: {
+                    model: 'Courses',
                     key: 'id'
                 }
             },

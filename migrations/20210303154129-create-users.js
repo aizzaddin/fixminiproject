@@ -8,24 +8,24 @@ module.exports = {
                 type: Sequelize.STRING(22)
             },
             firstName: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING(50)
             },
             lastName: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING(50)
             },
             username: {
                 allowNull: false,
                 unique: true,
-                type: Sequelize.STRING
+                type: Sequelize.STRING(20)
             },
             email: {
                 allowNull: false,
                 unique: true,
-                type: Sequelize.STRING
+                type: Sequelize.STRING(25)
             },
             password: {
                 allowNull: false,
-                type: Sequelize.STRING
+                type: Sequelize.STRING(25)
             },
             info: {
                 type: Sequelize.TEXT

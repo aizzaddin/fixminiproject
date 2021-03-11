@@ -13,11 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Users, {
         foreignKey: "user_id"
-    })
+      })
     }
   };
   Bookmarks.init({
-    bookmark: DataTypes.STRING,
     url: DataTypes.STRING,
     user_id: DataTypes.STRING
   }, {

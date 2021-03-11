@@ -13,14 +13,17 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             this.hasMany(models.Questions, {
                 foreignKey: "user_id"
-              }),
-              this.hasMany(models.Answers, {
+            }),
+            this.hasMany(models.Answers, {
                 foreignKey: "user_id"
             }),
             this.hasMany(models.Bookmarks, {
                 foreignKey: "user_id"
             }),
             this.hasMany(models.Transactions, {
+                foreignKey: "user_id"
+            }),
+            this.hasMany(models.Media, {
                 foreignKey: "user_id"
             })
         }

@@ -7,17 +7,9 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.STRING(22)
             },
-            kategori: {
+            category: {
                 allowNull: false,
-                type: Sequelize.STRING
-            },
-            program_studi: {
-                allowNull: false,
-                type: Sequelize.STRING
-            },
-            mata_kuliah: {
-                allowNull: false,
-                type: Sequelize.STRING
+                type: Sequelize.STRING(50)
             },
             createdAt: {
                 allowNull: false,
