@@ -30,10 +30,11 @@ module.exports = {
     })
   },
   create: (req, res) => {
-    const { id, answer, category, user, question} = req.body
+    const { id, answer, reference, category, user, question} = req.body
     Answers.create({
       id: id,
       answer: answer,
+      reference: reference,
       category_id: category,
       user_id: user,
       question_id: question
@@ -41,15 +42,16 @@ module.exports = {
     .then(() => {
       res.status(201).json({
         status: "success",
-        message: "Create actor success!"
+        message: "Create Answer success!"
       })
     })
   },
   update: (req, res) => {
-    const { id, answer, category, user, question} = req.body
+    const { id, answer, reference, category, user, question} = req.body
     Answers.update({
         id: id,
         answer: answer,
+        reference: reference,
         category_id: category,
         user_id: user,
         question_id: question
@@ -59,7 +61,7 @@ module.exports = {
     .then(() => {
       res.status(201).json({
         status: "success",
-        message: "Update actor success!"
+        message: "Update Answers success!"
       })
     })
   },
@@ -70,7 +72,7 @@ module.exports = {
     .then(() => {
       res.status(200).json({
         status: "success",
-        message: "Delete actor success!"
+        message: "Delete Answers success!"
       })
     })
   }
