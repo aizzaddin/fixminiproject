@@ -16,16 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       }),
       this.belongsTo(models.Questions, {
         foreignKey: "question_id"
-      }),
-      this.belongsTo(models.Categories, {
-        foreignKey: "category_id"
       })
     }
   };
   Answers.init({
     answer: DataTypes.TEXT,
+    media:DataTypes.STRING,
     reference:DataTypes.STRING,
-    category_id: DataTypes.STRING,
     user_id: DataTypes.STRING,
     question_id: DataTypes.STRING
   }, {

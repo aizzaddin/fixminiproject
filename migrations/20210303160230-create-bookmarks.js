@@ -7,11 +7,8 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.STRING(22)
             },
-            bookmark: {
-                type: Sequelize.STRING
-            },
             url: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING(50)
             },
             user_id: {
                 type: Sequelize.STRING(22),

@@ -19,13 +19,22 @@ module.exports = (sequelize, DataTypes) => {
       }),
       this.hasMany(models.Answers, {
         foreignKey: "question_id"
+      }),
+      this.belongsTo(models.Departements, {
+        foreignKey: "departement_id"
+      }),
+      this.belongsTo(models.Courses, {
+        foreignKey: "course_id"
       })
     }
   };
   Questions.init({
     title: DataTypes.STRING,
     question: DataTypes.TEXT,
+    media: DataTypes.STRING,
     category_id: DataTypes.STRING,
+    departement_id: DataTypes.STRING,
+    course_id: DataTypes.STRING,
     user_id: DataTypes.STRING
   }, {
     sequelize,

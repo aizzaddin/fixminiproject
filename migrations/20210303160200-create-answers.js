@@ -11,16 +11,11 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.TEXT
             },
-            reference: {
+            media: {
                 type: Sequelize.STRING
             },
-            category_id: {
-                allowNull: false,
-                type: Sequelize.STRING(22),
-                references: {
-                    model: 'Categories',
-                    key: 'id'
-                }
+            reference: {
+                type: Sequelize.STRING
             },
             user_id: {
                 allowNull: false,
