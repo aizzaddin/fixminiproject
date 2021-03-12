@@ -1,3 +1,4 @@
+const { nanoid } = require("nanoid")
 const { Subscriptions } = require("../models")
 
 module.exports = {
@@ -30,16 +31,14 @@ module.exports = {
     })
   },
   create: (req, res) => {
-    const { id, email} = req.body
+    const { email } = req.body
     Subscriptions.create({
-        id: id,
+        id: nanoid(),
         email: email
     })
     .then(() => {
-      res.status(201).json({
-        status: "success",
-        message: "Create Subscriptions success!"
-      })
+      res.redirect('/')
+      // res.redirect('/?berhasil=' + encodeURIComponent('berhasil_daftar'))
     })
   },
  

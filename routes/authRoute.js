@@ -2,17 +2,15 @@ const express = require('express')
 const UserController = require('../controller/userController')
 const user = new UserController()
 const app = express.Router()
+const jwt = require('jsonwebtoken')
 
 app.get('/register', (req, res) => { 
     res.render('register')
 })
 
 app.post('/register', async (req, res) => {
-    const username = req.body.username
-    const email = req.body.email
-    const password = req.body.password
-    const role = req.body.role
-    const result = await user.register(username, email, password, role)
+    const { username, email, password, password2, role } = req.body
+    const result = await user.register(username, email, password, password2 ,role)
     res.redirect('/login')
 })
 
@@ -21,10 +19,12 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', async (req, res) => {
-    const username = req.body.username
-    const password = req.body.password
+    const { username, password } = req.body
     const result = await user.login(username, password)
-    res.send(result)
+    const token = jwt.sign({ id : result }, process.env.JWT_SECRET)
+    console.log(token);
+    res.cookie('jwt', token)
+    res.redirect('/dashboard')
 })
 
 module.exports = app

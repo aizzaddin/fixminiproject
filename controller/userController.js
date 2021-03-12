@@ -1,7 +1,6 @@
 const { Users } = require('../models')
 const bcrypt = require('bcrypt')
 const { nanoid } = require('nanoid')
-const jwt = require('jsonwebtoken')
 const BaseController = require('./baseController')
 
 class UserController extends BaseController {
@@ -9,19 +8,19 @@ class UserController extends BaseController {
         super(Users)
     }
 
-    async register(username, email, password, role) {
+    async register(username, email, password, password2, role) {
         const payload = {
             id: nanoid(),
             username,
             email,
             role,
-            password: await bcrypt.hash(password, 10)
+            password: await bcrypt.hash(password, 10),
+            password2: await bcrypt.hash(password2, 10)
         }
         const result = await Users.create(payload)
         return {
             id: result.id,
             username: result.username,
-            token: jwt.sign({ id: result.id }, process.env.JWT_SECRET)
         }
     }
 
@@ -30,11 +29,7 @@ class UserController extends BaseController {
             where: { username }
         })
         if (await bcrypt.compare(password, user.password)) {
-            return {
-                id: user.id,
-                username: user.username,
-                token: jwt.sign({ id: user.id }, process.env.JWT_SECRET)
-            }
+            return user.id
         } else {
             return "wrong password"
         }

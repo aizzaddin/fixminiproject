@@ -1,0 +1,146 @@
+*,
+body {
+    margin: 0;
+    background-color: #e5e5e5;
+    font-family: Roboto;
+}
+
+#content {
+    margin: 86px 165px 70px 165px;
+}
+
+#logoBetewe {
+    height: 100px;
+    width: 100px;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+}
+
+h1 {
+    background-color: transparent;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 46px;
+    letter-spacing: 0.005em;
+    text-align: center;
+    color: rgba(26, 26, 26, 1);
+}
+
+h5 {
+    background-color: transparent;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: rgba(26, 26, 26, 1);
+    margin: 0px;
+}
+
+#penagihan {
+    background-color: transparent;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: rgba(188, 188, 188, 1);
+
+}
+
+p {
+    background-color: transparent;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.005em;
+    /* text-align: left; */
+    color: rgba(26, 26, 26, 1);
+    line-height: 32px;
+    margin-bottom: 0px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+li {
+    padding-left: 20px;
+    background-color: transparent;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: rgba(26, 26, 26, 1);
+    line-height: 32px;
+}
+
+a {
+    color: rgba(26, 26, 26, 1);
+    background-color: transparent;
+}
+
+h3 {
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: rgba(26, 26, 26, 0.6);
+
+}
+
+.container,
+.col-6,
+.col-8,
+.col-4,
+.col-xl-6 {
+    background-color: transparent;
+    padding: 7px;
+    margin: 0px;
+}
+
+#detail {}
+
+.row {
+    background-color: transparent;
+}
+
+#detailPembayaran {
+    margin-left: 30px;
+    height: 354px;
+    width: 475px;
+    padding: 50px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+/* footer */
+.container-footer {
+    font-family: 'Roboto';
+    color: white;
+    text-align: center;
+    /* height: 80px; */
+    background-color: #2C448C;
+    backdrop-filter: blur(4px);
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+h6 {
+    background-color: transparent;
+}
