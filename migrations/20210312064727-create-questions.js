@@ -33,7 +33,7 @@ module.exports = {
             },
             departement_id: {
                 allowNull: false,
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING(22),
                 references: {
                   model: 'Departements',
                   key: 'id'
@@ -41,7 +41,7 @@ module.exports = {
             },
             course_id: {
                 allowNull: false,
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING(22),
                 references: {
                   model: 'Courses',
                   key: 'id'
