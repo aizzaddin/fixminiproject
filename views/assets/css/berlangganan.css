@@ -1,0 +1,109 @@
+*,
+body {
+    background-color: #f2f2f2;
+}
+
+b {
+    background-color: transparent;
+}
+
+p {
+    font-size: 12px;
+    background-color: transparent;
+}
+
+
+.col-xl-4 {
+    margin: 0px;
+}
+
+
+/* Navbar */
+
+.navigasi {
+    margin-left: 165px;
+}
+
+#myNavbar {
+    padding-left: 272.5px;
+    padding-top: 10px
+}
+
+.nav-item {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.005em;
+    margin-left: 26.5px;
+    white-space: nowrap;
+}
+
+.btn-masuk {
+    background-color: #2c448c;
+    border-radius: 10px;
+    font-family: "Roboto", sans-serif;
+    color: white;
+    margin-top: 10px;
+    margin-left: 25px;
+    width: 146px;
+    font-size: 18px;
+    height: 39px;
+}
+
+.btn-masuk:hover {
+    color: #84acf8;
+}
+
+#kontenKotak {
+    align-content: center;
+    left: 0px;
+    top: 0px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    text-align: center;
+    margin: 10px 25px 10px 25px;
+    padding-top: 60px;
+    padding-left: 68;
+    padding-right: 68;
+
+}
+
+#tombolLangganan {
+    background-color: #84acf8;
+    text-align: center;
+    margin: 46px 0px 22px 0px;
+    border-radius: 15px;
+    box-shadow: none;
+    border-radius: nullpx;
+    height: 50px;
+    width: 186px;
+    left: 0px;
+    top: 0px;
+    border-radius: 15px;
+    box-shadow: none;
+    color: white;
+}
+
+
+#tombolLangganan:hover {
+    background-color: #2c44bc;
+}
+
+/* footer */
+.container-footer {
+    font-family: 'Roboto';
+    color: white;
+    text-align: center;
+    /* height: 80px; */
+    background-color: #2C448C;
+    backdrop-filter: blur(4px);
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+h6 {
+    background-color: transparent;
+}

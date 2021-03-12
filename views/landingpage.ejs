@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/home.css" />
+      
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+    <title>BETEWE</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <section class="navigasi">
+        <nav class="navbar navbar-expand-lg navbar-light">
+              <div class="container">
+                    <a class="navbar-brand" href="/">
+                          <img src="assets/images/logo.svg" alt="" width="140" >
+                    </a>
+              <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                    <ul class="navbar-nav ml-auto flex-nowrap">
+                          <li class="nav-item">
+                          <a href="/" class="nav-link menu-item nav-active" id="items">Beranda</a>
+                          </li>
+                          <li class="nav-item">
+                          <a href="about.html" class="nav-link  menu-item">Tentang Kami</a>
+                          </li>
+                          <li class="nav-item">
+                          <a href="berlangganan.html" class="nav-link menu-item">Berlangganan</a>
+                          </li>
+                          <li class="nav-item">
+                          <a href="/login" class="nav-link menu-item">Masuk</a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="/register">
+                                <button class="btn btn-masuk" type="submit">Daftar</button>
+                            </a>
+                          </li>
+                    </ul>
+              </div>
+              </div>
+        </nav>
+    </section>
+
+    <!-- konten atas -->
+    <section id="contentAtas" style="margin-top: 100px;">
+        <!-- image with search bar -->
+        <div class="container">
+            <div class="row">
+                <!-- gambar -->
+                <div class="col-lg-6">
+                    <div class="image-banner-1"><img src="assets/images/pexels-vlada-karpovich-4050315 1.png" alt="" id="banner"> </div>
+                </div>              
+
+                <!-- <div class="alert alert-success" role="alert" id="emaildidaftarkan">
+                    <p style="text-align: center;">Emailmu berhasil didaftarkan</p>
+                </div>
+
+                <script>
+                    $('#emaildidaftarkan').hide();
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const myParam = urlParams.get('berhasil');
+                    if(myParam == "berhasil_daftar") {
+                        $('#emaildidaftarkan').show();
+                    }
+                </script> -->
+
+                <!-- search -->
+                <div class="col-lg-6" style="padding-left: 100px;">
+                    <h1>
+                        Bingung mau ngerjain tugas kuliah?
+                    </h1>
+                    <div>
+                        <p>
+                           Tenang, Betewe siap membantu kamu mendapatkan informasi dan pembahasan sesuai topik perkuliahanmu!
+                        </p>
+                    <div>
+                    <div class="search"> <input type="text" class="form-control" placeholder="Cari Jawaban dari Pertanyaanmu"> <button class="btn-search "><i class="fa fa-search"></i></button> </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Teks -->
+        <div style="margin-top: 150px; margin-bottom: 120px; text-align: center;">
+            <h1 class="bannertengah">Temukan jawaban dari segala<br>pertanyaanmu!</h1>
+            <img src="assets/images/garis.svg" alt="">
+        </div>
+    
+        <!-- next content -->
+        <div class="container">
+            <div class="row">
+                <!-- Kalimat -->
+                <div class="col-6" style="padding-right: 100px;">
+    
+                    <!-- teks animasi pertama -->
+                    <div class="block animatable fadeIn">
+                        <p>
+                            Tiap habis kelas langsung dikasih tugas dan deadline-nya mepet? Cari materi di buku perlu banyak waktu dan belum tentu nemu?
+                        </p>
+                        <h4>
+                            BTW, Tanya-Jawab yuk!                    
+                        </h4>
+                    </div>
+    
+                    <!-- teks animasi kedua -->
+                    <div class="block animatable fadeIn">
+                        <p>
+                            Kamu suka membahas sebuah topik materi dengan teman-teman lain untuk membantumu mendapat pemahaman yang lebih baik?
+                        </p>
+                        <h4>
+                            BTW, Diskusi bareng yuk!                   
+                        </h4>
+                    </div>
+    
+                    <!-- teks animasi ketiga -->
+                    <div class="block animatable fadeIn">
+                        <p>
+                            Kesulitan cari referensi berdasarkan program studi-mu? Search by keyword tetapi hasilnya masih belum memuaskan?
+                        </p>
+                        <h4>
+                            BTW, kategorinya sesuai jurusan loh!    
+                        </h4>
+                    </div>
+                    
+                </div>
+    
+                <!-- 3 gambar kanan -->
+                <div class="col-6">
+                    <div class="block animatable fadeIn">
+                        <div class="image-banner-3 non-positioned"> </div>
+                        <div class="image-banner-4 non-positioned"> </div>
+                    </div>
+                    <div class="block animatable fadeIn">
+                        <div class="image-banner-5 non-positioned"> </div>
+                        <div class="image-banner-6 non-positioned"> </div>
+                    </div>
+                    <div class="block animatable fadeIn">
+                        <div class="image-banner-7 non-positioned"> </div>
+                        <div class="image-banner-8 non-positioned"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section class = "testimoni" style="margin-top: 100px;">
+        <div align='center'>
+            <h1>Baca pendapat mereka yuk</h1>
+            <img src="assets/images/garis.svg" alt="line" style=" margin-bottom: 60px;">
+        </div>
+        
+        <!-- Slider Testimoni -->
+        <div class="slider-area">
+            <div class="container">
+                <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
+                    <!-- indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <!-- slides content -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <div class="img-area">
+                                  <img src="assets/images/Ellipse.svg" class= "d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                  <h3>Anette Black</h3>
+                                  <h4>21, Mahasiswa Astronomi</h4>
+                                  <p>“Seneng banget bisa nemu Betewe, jadi gampang banget bikin tugas kuliah. Tercanggih deh pokoknya “</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="img-area">
+                                  <img src="assets/images/Ellipse(1).svg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                  <h3>Marvin McKinney</h3>
+                                  <h4>22, Mahasiswa Bisnis</h4>
+                                  <p alig>“Fitur diskusinya bener-bener ngebantu banget buat dapetin inspirasi dan bertukar pengalaman baru dari sesama mahasiswa dari institusi lainnya. Saya jadi makin pede buat kerjain tugas dan proyek di kuliah“</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="img-area">
+                                  <img src="assets/images/Ellipse(2).svg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                  <h3>Betsie Cooper</h3>
+                                  <h4>18, Mahasiswa Arsitektur</h4>
+                                  <p>“Dampaknya terasa banget! Tugas-tugasku beres lebih cepat bahkan sebelum deadline! Jadi bisa nge-drakor deh. “</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="img-area">
+                                  <img src="assets/images/Ellipse(3).svg" class="d-block w-100" alt="fotoProfil1">
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                  <h3>Jacob Jones</h3>
+                                  <h4>19, Mahasiswa Sastra</h4>
+                                  <p>“Betewe, Mantap! “</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- konten bawah -->
+    <section id="contentBawah">
+
+        <!-- Cari Tahu -->
+        <div style="text-align: center; margin-top: 120px; margin-bottom: 70px;">
+            <h1>Tingkatkan pembelajaran kamu dengan Betewe Eksklusif!</h1>
+        </div>
+        <div class="container">
+            <div class="row">   
+                <div class="col-6">
+                    <ul>
+                        <li style='list-style-type: none;'>
+                            Merasa kurang yakin dengan informasi atau pemahaman 
+                            materi yang kamu dapat? Butuh kepastian akan semua pertanyaanmu?
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul>
+                        <li>Bertanya pada akun terverifikasi yaitu orang yang ahli di bidangnya</li>
+                        <li>Mendapat jawaban lebih cepat</li>
+                        <li>Kemudahan akses jurnal yang dimiliki akun terverifikasi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- tombol -->
+        <div class="row" id="btn-know-more">
+            <button type="button" class="btn-know-more">Cari tahu</button>
+        </div>
+    
+        <!-- Daftarkan emailmu -->
+        <div class= "container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="img-email">
+                        <img src="assets/images/pexels-andrea-piacquadio-3769021 1.jpg"> 
+                    </div>
+                </div>
+                <div class="col-7">
+                    <form action="/subscription" method="POST">
+                    <h1>Daftarkan e-mail kamu untuk mendapatkan info promo dari kami, GRATIS!</h1>    
+                    <input type="email" class="form-add-email" name="email" id="input-email" placeholder="Tulis email kamu disini!"style="border: transparent;">
+                    <button type="submit" class="btn-add-email">Kirim</button>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- tombol backToTop Button  -->
+    <div id="backToTop"></div>
+
+    <!--  Footer -->
+    <div class= "container-footer">
+        <h6>©2020 PT Betewe Apa ya. All Rights Reserved</h6>
+        <h6 style="margin-top: 8px;">Privacy — Terms</h6>
+    </div>   
+</body>
+</html>
