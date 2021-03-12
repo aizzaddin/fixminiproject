@@ -5,13 +5,14 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING(22)
+        autoIncrement: true,
+        type: Sequelize.INTEGER
       },
       course: {
         type: Sequelize.STRING(50)
       },
       departement_id: {
-        type: Sequelize.STRING(22),
+        type: Sequelize.INTEGER,
         references: {
           model: 'Departements',
           key: 'id'

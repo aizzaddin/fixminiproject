@@ -40,7 +40,7 @@ module.exports = {
     .then(() => {
       res.status(201).json({
         status: "success",
-        message: "Create actor success!"
+        message: "Create question success!"
       })
     })
   },
@@ -57,7 +57,7 @@ module.exports = {
     .then(() => {
       res.status(201).json({
         status: "success",
-        message: "Update actor success!"
+        message: "Update question success!"
       })
     })
   },
@@ -68,7 +68,7 @@ module.exports = {
     .then(() => {
       res.status(200).json({
         status: "success",
-        message: "Delete actor success!"
+        message: "Delete question success!"
       })
     })
   }
