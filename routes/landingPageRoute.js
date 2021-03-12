@@ -2,7 +2,7 @@ const express = require('express')
 const app = express.Router()
 
 app.get('/', (req, res) => { 
-    res.send('ini landing page')
+    res.render('landingpage')
 })
 
 module.exports = app
