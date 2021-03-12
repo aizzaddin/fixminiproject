@@ -30,34 +30,42 @@ module.exports = {
     })
   },
   create: (req, res) => {
-    const { title, question, category, id} = req.body
+    const { id, title, question, media_id, category_id, departement_id, course_id, user_id} = req.body
     Questions.create({
+      id: id,
       title: title,
       question: question,
-      category_id: category,
-      id: id
+      media_id: media_id,
+      category_id: category_id,
+      departement_id: departement_id,
+      course_id: course_id,
+      user_id: user_id
     })
     .then(() => {
       res.status(201).json({
         status: "success",
-        message: "Create question success!"
+        message: "Create Question success!"
       })
     })
   },
   update: (req, res) => {
-    const { title, question, category, id } = req.body
+    const { id, title, question, media_id, category_id, departement_id, course_id, user_id} = req.body
     Questions.update({
-        title: title,
-        question: question,
-        category_id: category,
-        id: id
+      id: id,
+      title: title,
+      question: question,
+      media_id: media_id,
+      category_id: category_id,
+      departement_id: departement_id,
+      course_id: course_id,
+      user_id: user_id
     }, {
       where: { id: Number(req.params.id) }
     })
     .then(() => {
       res.status(201).json({
         status: "success",
-        message: "Update question success!"
+        message: "Update Question success!"
       })
     })
   },
@@ -68,7 +76,7 @@ module.exports = {
     .then(() => {
       res.status(200).json({
         status: "success",
-        message: "Delete question success!"
+        message: "Delete Question success!"
       })
     })
   }
