@@ -14,10 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Users, {
         foreignKey: "user_id"
       }),
+      this.belongsTo(models.Media, {
+        foreignKey: "media_id"
+      }),
       this.belongsTo(models.Categories, {
         foreignKey: "category_id"
       }),
-      this.hasMany(models.Answers, {
+      this.belongsTo(models.Answers, {
         foreignKey: "question_id"
       }),
       this.belongsTo(models.Departements, {
@@ -31,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   Questions.init({
     title: DataTypes.STRING,
     question: DataTypes.TEXT,
-    media: DataTypes.STRING,
+    media_id: DataTypes.STRING,
     category_id: DataTypes.STRING,
     departement_id: DataTypes.STRING,
     course_id: DataTypes.STRING,
