@@ -14,9 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Users, {
         foreignKey: "user_id"
       }),
-      this.belongsTo(models.Media, {
-        foreignKey: "media_id"
-      }),
       this.belongsTo(models.Categories, {
         foreignKey: "category_id"
       }),
