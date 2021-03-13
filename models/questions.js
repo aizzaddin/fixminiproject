@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Categories, {
         foreignKey: "category_id"
       }),
-      this.belongsTo(models.Answers, {
+      this.hasMany(models.Answers, {
         foreignKey: "question_id"
       }),
       this.belongsTo(models.Departements, {

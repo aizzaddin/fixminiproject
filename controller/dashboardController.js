@@ -1,4 +1,6 @@
 const { Questions } = require("../models")
+const moment = require("moment")
+const {nanoid} = require('nanoid')
 
 module.exports = {
     index: (req, res) => {
@@ -6,9 +8,20 @@ module.exports = {
                 attributes: ['title', 'user_id', 'question', 'category_id', 'course_id'],
             })
             .then(result => {
+                const newArray = result.map(data => ({
+                    id: data.id, 
+                    title: data.title,
+                    question: data.question,
+                    category_id: data.category_id,
+                    departement_id: data.departement_id,
+                    course_id: data.course_id,
+                    user_id: data.user_id,
+                    createdAt: moment(data.createdAt).fromNow(),
+                    updatedAt: moment(data.updateAt).fromNow()
+                    }))
                 res.status(200).json({
                     status: "success",
-                    data: result
+                    data: newArray
                 })
             })
     },
@@ -20,7 +33,8 @@ module.exports = {
                 if (result !== null) {
                     res.status(200).json({
                         status: "success",
-                        data: result
+                        data: result,
+                        time: moment(result.dataValues.createdAt).fromNow()
                     })
                 } else {
                     res.status(200).json({
@@ -32,9 +46,9 @@ module.exports = {
             })
     },
     create: (req, res) => {
-        const { id, title, question, category_id, departement_id, course_id, user_id } = req.body
+        const { title, question, category_id, departement_id, course_id, user_id } = req.body
         Questions.create({
-                id: id,
+                id: nanoid(),
                 title: title,
                 question: question,
                 category_id: category_id,
