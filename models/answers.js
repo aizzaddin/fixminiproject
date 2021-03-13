@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Media, {
-        foreignKey: "media_id"
-      }),
       this.belongsTo(models.Users, {
         foreignKey: "user_id"
       }),
@@ -24,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   Answers.init({
     answer: DataTypes.TEXT,
-    media_id:DataTypes.STRING,
     reference:DataTypes.STRING,
     user_id: DataTypes.STRING,
     question_id: DataTypes.STRING

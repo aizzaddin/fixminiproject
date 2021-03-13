@@ -15,14 +15,6 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.TEXT
             },
-            media_id: {
-                allowNull: false,
-                type: Sequelize.STRING(22),
-                references: {
-                  model: 'Media',
-                  key: 'id'
-                }
-            },
             category_id: {
                 allowNull: false,
                 type: Sequelize.STRING(22),
