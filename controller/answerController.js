@@ -30,12 +30,12 @@ module.exports = {
     })
   },
   create: (req, res) => {
-    const { id, answer, reference, category, user, question} = req.body
+    const { id, answer, media_id, reference, user, question} = req.body
     Answers.create({
       id: id,
       answer: answer,
+      media_id: media_id,
       reference: reference,
-      category_id: category,
       user_id: user,
       question_id: question
     })
@@ -47,14 +47,14 @@ module.exports = {
     })
   },
   update: (req, res) => {
-    const { id, answer, reference, category, user, question} = req.body
+    const { id, answer, media_id, reference, user, question} = req.body
     Answers.update({
-        id: id,
-        answer: answer,
-        reference: reference,
-        category_id: category,
-        user_id: user,
-        question_id: question
+      id: id,
+      answer: answer,
+      media_id: media_id,
+      reference: reference,
+      user_id: user,
+      question_id: question
     }, {
       where: { id: Number(req.params.id) }
     })
