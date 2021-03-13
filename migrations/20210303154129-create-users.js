@@ -25,11 +25,11 @@ module.exports = {
             },
             password: {
                 allowNull: false,
-                type: Sequelize.STRING(25)
+                type: Sequelize.STRING
             },
             password2: {
                 allowNull: false,
-                type: Sequelize.STRING(25)
+                type: Sequelize.STRING
             },
             info: {
                 type: Sequelize.TEXT
