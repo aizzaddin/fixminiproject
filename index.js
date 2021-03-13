@@ -20,7 +20,8 @@ const serviceRoute = require('./routes/serviceRoute')
 const transactionRoute = require('./routes/transactionRoute')
 const questionRoute = require('./routes/questionRoute')
 const cariRoute = require('./routes/cariRoute')
-app.use(landingPageRoute, authRoute)
+const profileRoute = require('./routes/profileRoute')
+app.use(landingPageRoute, authRoute, profileRoute)
 
 app.use(function(error, req, res, next) {
     res.send(error)
