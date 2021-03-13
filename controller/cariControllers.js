@@ -1,59 +1,100 @@
-const { User, Questions, Answers, Categories } = require('../models')
+const { Courses, Departements, Questions, Answers, Categories } = require('../models')
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 module.exports = {
+    //nampilin semua judul pertanyaan
     index: (req, res) => {
         Questions.findAll({
-                attributes: ['title', 'user_id', 'question'],
+                attributes: ['title', 'user_id'],
                 include: [{
-                    attributes: ['kategori', 'mata_kuliah'],
+                    attributes: ['id', 'category'],
                     model: Categories,
-                    include: [{
-                        attributes: ['answer', 'user_id'],
-                        model: Answers,
-                    }]
-                }]
+                }],
             })
             .then(result => {
-                res.status(200).json({
-                    status: "success",
-                    data: result
-                })
+                if (result !== null) {
+                    res.status(200).json({
+                        status: "success",
+                        data: result
+                    })
+                } else {
+                    res.status(200).json({
+                        status: "success",
+                        message: "Data not found!",
+                        data: result
+                    })
+                }
             })
     },
+    //searching by title(judul)
     show: (req, res) => {
         const { title, question, category_id } = req.query
-        Questions.findOne({
-                // where: {
-                //     title: req.query.title,
-                //     category_id: req.query.category_id,
-                //     question: req.query.question
-                // },
-                attributes: ['title', 'user_id', 'question'],
-                limit: 4,
+        Questions.findAll({
+                limit: 10,
                 where: {
-                    // title: {
-                    //     [Op.like]: req.query.title
-                    // }
-                    [Op.or]: {
-                        // title: {
-                        //     [Op.like]: title
-                        // },
-                        title
-                        // {
-                        //     [Op.like]: question
-                        // }
+                    title: {
+                        [Op.like]: '%' + title + '%'
+                    },
+                },
+                attributes: ['title', 'user_id', 'question', 'category_id', 'course_id'],
+                include: [{
+                    attributes: ['category'],
+                    model: Categories,
+                }],
+                // attributes: ['user_id', 'answer'],
+                // include: [{
+                //     attributes: ['user_id', 'answer'],
+                //     model: Answers,
+                // }]
+            })
+            .then(result => {
+                if (result !== null) {
+                    res.status(200).json({
+                        status: "success",
+                        data: result
+                    })
+                } else {
+                    res.status(200).json({
+                        status: "success",
+                        message: "Data not found!",
+                        data: result
+                    })
+                }
+            })
+    },
+    //filtering by categories_matakuliah
+    filter: (req, res) => {
+        const { category, departements, courses, title } = req.body
+        Categories.findAll({
+                attributes: ['category', 'id'],
+                where: {
+                    category: {
+                        [Op.like]: `%${category}%`
                     }
-
                 },
                 include: [{
-                    attributes: ['kategori', 'mata_kuliah'],
-                    model: Categories,
+                    where: {
+                        departement: {
+                            [Op.like]: `%${departements}%`,
+                        }
+                    },
+                    attributes: ['departement', 'category_id', 'id'],
+                    model: Departements,
                     include: [{
-                        model: Answers,
-                    }]
-                }]
+                        where: {
+                            course: {
+                                [Op.like]: `%${courses}%`,
+                            }
+                        },
+                        attributes: ['course', 'id'],
+                        model: Courses,
+                        include: [{
+                            attributes: ['title'],
+                            model: Questions,
+                        }],
+                    }],
+                }],
             })
             .then(result => {
                 if (result !== null) {
@@ -69,53 +110,5 @@ module.exports = {
                     })
                 }
             })
-    },
-    showjawaban: (req, res) => {
-        Questions.findOne({
-                where: {
-                    id: req.body.id
-                },
-                attributes: ['title', 'user_id', 'question'],
-                include: [{
-                    model: Categories,
-                    attributes: ['kategori', 'mata_kuliah'],
-                    include: [{
-                        model: Answers,
-                    }]
-                }]
-            })
-            .then(result => {
-                if (result !== null) {
-                    res.status(200).json({
-                        status: "success",
-                        data: result
-                    })
-                } else {
-                    res.status(200).json({
-                        status: "success",
-                        message: "Data not found!",
-                        data: result
-                    })
-                }
-            })
-    },
-    // indexLogin: (req, res) => {
-    //     Questions.findAll({
-    //             attributes: ['title', 'user_id', 'question'],
-    //             include: [{
-    //                 attributes: ['kategori', 'mata_kuliah'],
-    //                 model: Categories,
-    //                 include: [{
-    //                     attributes: ['answer', 'user_id'],
-    //                     model: Answers,
-    //                 }]
-    //             }]
-    //         })
-    //         .then(result => {
-    //             res.status(200).json({
-    //                 status: "success",
-    //                 data: result
-    //             })
-    //         })
-    // },
+    }
 }
