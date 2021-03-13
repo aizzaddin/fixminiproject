@@ -1,12 +1,24 @@
 const { Answers } = require("../models")
+const moment = require("moment")
+const {nanoid} = require('nanoid')
 
 module.exports = {
     index: (req, res) => {
         Answers.findAll()
             .then(result => {
+                const newArray = result.map(data => ({
+                id: data.id, 
+                answer: data.answer,
+                reference: data.reference,
+                user_id: data.user_id,
+                question_id: data.question_id,
+                createdAt: moment(data.createdAt).fromNow(),
+                updatedAt: moment(data.updateAt).fromNow()
+                }))
+
                 res.status(200).json({
                     status: "success",
-                    data: result
+                    data: newArray
                 })
             })
     },
@@ -18,7 +30,8 @@ module.exports = {
                 if (result !== null) {
                     res.status(200).json({
                         status: "success",
-                        data: result
+                        data: result,
+                        time: moment(result.dataValues.createdAt).fromNow()
                     })
                 } else {
                     res.status(200).json({
@@ -30,13 +43,13 @@ module.exports = {
             })
     },
     create: (req, res) => {
-        const { id, answer, reference, user, question } = req.body
+        const { answer, reference, user_id, question_id } = req.body
         Answers.create({
-                id: id,
+                id: nanoid(),
                 answer: answer,
                 reference: reference,
-                user_id: user,
-                question_id: question
+                user_id: user_id,
+                question_id: question_id
             })
             .then(() => {
                 res.status(201).json({
@@ -46,13 +59,13 @@ module.exports = {
             })
     },
     update: (req, res) => {
-        const { id, answer, reference, user, question } = req.body
+        const { id, answer, reference, user_id, question_id } = req.body
         Answers.update({
                 id: id,
                 answer: answer,
                 reference: reference,
-                user_id: user,
-                question_id: question
+                user_id: user_id,
+                question_id: question_id
             }, {
                 where: { id: Number(req.params.id) }
             })
