@@ -22,9 +22,6 @@ module.exports = (sequelize, DataTypes) => {
             }),
             this.hasMany(models.Transactions, {
                 foreignKey: "user_id"
-            }),
-            this.hasMany(models.Media, {
-                foreignKey: "user_id"
             })
         }
     };

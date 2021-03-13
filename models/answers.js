@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Media, {
-        foreignKey: "media_id"
-      }),
       this.belongsTo(models.Users, {
         foreignKey: "user_id"
       }),
