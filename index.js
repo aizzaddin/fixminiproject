@@ -11,9 +11,6 @@ app.use(express.static(__dirname + '/views'));
 app.use(cookieParser())
 app.set('view engine', 'ejs');
 
-const passport = require('./middleware/passportMiddleware')
-const restrict = passport.authenticate('jwt', {session: false, failureRedirect: '/login'})
-
 const landingPageRoute = require('./Routes/landingPageRoute')
 const authRoute = require('./Routes/authRoute')
 const dashboardRoute = require('./routes/dashboardRoute')
@@ -29,12 +26,12 @@ app.use(function (error, req, res, next) {
     res.send(error)
 })
 
-app.use('/', restrict, dashboardRoute)
-app.use('/', restrict, answerRoute)
+app.use(dashboardRoute)
+app.use(answerRoute)
 app.use(subscriptionRoute)
 app.use(serviceRoute)
-app.use('/', restrict, transactionRoute)
-app.use('/', restrict, questionRoute)
+app.use(transactionRoute)
+app.use(questionRoute)
 
 const port = process.env.PORT || 3000 
 app.listen(port, () => {
