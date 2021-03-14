@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
+
+    <!-- Froala -->
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/css/froala_editor.pkgd.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/pertanyaan.css" />
+
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/js/changePassword/buttonDIsable.js"></script>
+
+    <title>Pertanyaan</title>
+</head>
+
+<body>
+    <section class="navigasi">
+        <nav class="navbar navbar-expand-lg navbar-beranda">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/logo.svg" alt="" width="140">
+                </a>
+                <!-- navbar kanan -->
+                <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                    <ul class="navbar-nav navbar-right ml-auto flex-nowrap">
+                        <li class="nav-item">
+                            <div class="search"> <input type="text" class="form-control" placeholder="Cari"
+                                    style="margin-top:10px;"> <button class="btn-search "><i
+                                        class="fa fa-search"></i></button> </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="circle-button"><i class="far fa-bell"></i></div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                                    class="img-circle">
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="profile-wrap">
+                                    <a class="dropdown-pict" id="coba" href="#"> <img
+                                            src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                                            class="img-circle-big"> </a>
+                                    <div class="setting-title">Nama <br> asasass </div>
+                                </div>
+                                <div class="menu-profile">
+                                    <a class="dropdown-item" href="#"> View Info Profile</a>
+                                    <a class="dropdown-item" href="#">Berlangganan</a>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <!-- Konten Kiri -->
+            <div class="col-xl-11" id="formPertanyaan">
+                <div class="row">
+                    <div class="col-1" style="padding-top: 15px;">
+                        <img src="assets/images/foto_profil.svg">
+                    </div>
+
+                    <div class="col-10">
+                        <form action="/api/addQuestion" method="POST" style="padding-top: 20px;" class="regis">
+                            <!-- USERNAME -->
+                            <h5 class="mt-0">Nama <span id="jenis">Pertanyaan</span></h5>
+                            <p id="prodi">S1 Sastra Indonesia</p>
+
+                            <!-- Deskripsi Pertanyaan -->
+                            <div id="descPertanyaan" style="margin-bottom: 100px;">
+                                <!-- input pertanyaan -->
+                                <div>
+                                    <input type="text" name="" id="pertanyaan" placeholder="Pertanyaan">
+                                    <div id="alert">
+                                        <p>* wajib</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <textarea id="edit" name="question" aria-describedby="pertanyaan"></textarea>
+                                </div>
+                                <div id="alert">
+                                    <p>* wajib</p>
+                                </div>
+                                <!-- Hastag -->
+                                <div id="kategori">
+                                    <h5>Kategori</h5>
+                                    <p id="descKategori">
+                                        Tambahkan kategori yang sesuai dengan pembahasan forummu, agar pengguna lain
+                                        dapat melihat dan ikut berkontribusi dalam mencari solusi untukmu.
+                                    </p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <input id="fakultas" placeholder="Kategori">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input id="programStudi" placeholder="Program Studi">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input id="matkul" placeholder="Mata Kuliah">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="alert" style="margin-top: 10px;">
+                                        <p>* wajib</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Script button disable/enable-->
+                            <script src="assets/js/buttonDIsable.js"></script>
+
+                            <!-- TOMBOL MASYOK -->
+                            <div class="d-grid gap-2 col-12 mx-block">
+                                <button type="submit" id="btnSubmited" value="Submit form" disabled>Kirim</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Space untuk tombol kirim -->
+            <div class="col-xl-2">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/js/froala_editor.pkgd.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
+    </script>
+    <script>
+        new FroalaEditor('#edit', {
+            // Set the file upload URL.
+            fileUploadURL: 'file_upload',
+            fileUploadParams: {
+                id: 'my_editor'
+            },
+            imageUploadURL: 'image_upload',
+            imageUploadParams: {
+                id: 'my_editor'
+            }
+        })
+    </script>
+</body>
+
+</html>
