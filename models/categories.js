@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Questions, {
         foreignKey: "category_id"
       }),
-      this.hasMany(models.Answers, {
+      this.hasMany(models.Departements, {
         foreignKey: "category_id"
       })
     }
   };
   Categories.init({
-    program_studi: DataTypes.STRING
+    Category: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Categories',

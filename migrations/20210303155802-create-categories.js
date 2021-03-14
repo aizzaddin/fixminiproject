@@ -7,8 +7,9 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.STRING(22)
             },
-            program_studi: {
-                type: Sequelize.STRING
+            category: {
+                allowNull: false,
+                type: Sequelize.STRING(50)
             },
             createdAt: {
                 allowNull: false,

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon -L index.js",
+    "build": "sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,12 +14,24 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "busboy": "^0.3.1",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
-    "nanoid": "^3.1.20",
+    "moment": "^2.29.1",
+    "nanoid": "^3.1.21",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "path": "^0.12.7",
     "pg": "^8.5.1",
-    "sequelize": "^6.5.0"
+    "sequelize": "^6.5.0",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }

@@ -13,22 +13,28 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             this.hasMany(models.Questions, {
                 foreignKey: "user_id"
-              }),
-              this.hasMany(models.Answers, {
+            }),
+            this.hasMany(models.Answers, {
                 foreignKey: "user_id"
             }),
             this.hasMany(models.Bookmarks, {
-              foreignKey: "id_user"
-          })
+                foreignKey: "user_id"
+            }),
+            this.hasMany(models.Transactions, {
+                foreignKey: "user_id"
+            })
         }
     };
     Users.init({
-        firstName: DataTypes.STRING,
-        lastName: DataTypes.STRING,
+        name: DataTypes.STRING,
         username: DataTypes.STRING,
         email: DataTypes.STRING,
         password: DataTypes.STRING,
-        info: DataTypes.TEXT,
+        password2: DataTypes.STRING,
+        bio: DataTypes.TEXT,
+        site: DataTypes.STRING,
+        phoneNumber: DataTypes.INTEGER,
+        gender: DataTypes.STRING,
         role: DataTypes.ENUM('user', 'admin')
     }, {
         sequelize,
