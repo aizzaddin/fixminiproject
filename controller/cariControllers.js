@@ -13,28 +13,30 @@ module.exports = {
                 }],
             })
             .then(result => {
-                if (result !== null) {
-                    res.status(200).json({
-                        status: "success",
+                if (!result[0]) {
+                    res.status(400).json({
+                        success: false,
+                        message: 'Data not found',
                         data: result
                     })
                 } else {
                     res.status(200).json({
-                        status: "success",
-                        message: "Data not found!",
+                        success: true,
+                        message: 'Success',
                         data: result
                     })
                 }
+
             })
     },
     //searching by title(judul)
     show: (req, res) => {
-        const { title, question, category_id } = req.query
+        const { title, question, category_id } = req.body
         Questions.findAll({
                 limit: 10,
                 where: {
                     title: {
-                        [Op.like]: '%' + title + '%'
+                        [Op.iLike]: '%' + title + '%'
                     },
                 },
                 attributes: ['title', 'user_id', 'question', 'category_id', 'course_id'],
@@ -49,18 +51,20 @@ module.exports = {
                 // }]
             })
             .then(result => {
-                if (result !== null) {
-                    res.status(200).json({
-                        status: "success",
+                if (!result[0]) {
+                    res.status(400).json({
+                        success: false,
+                        message: 'Data not found',
                         data: result
                     })
                 } else {
                     res.status(200).json({
-                        status: "success",
-                        message: "Data not found!",
+                        success: true,
+                        message: 'Success',
                         data: result
                     })
                 }
+
             })
     },
     //filtering by categories_matakuliah
@@ -68,15 +72,16 @@ module.exports = {
         const { category, departements, courses, title } = req.body
         Categories.findAll({
                 attributes: ['category', 'id'],
+
                 where: {
                     category: {
-                        [Op.like]: `%${category}%`
+                        [Op.iLike]: `%${category}%`
                     }
                 },
                 include: [{
                     where: {
                         departement: {
-                            [Op.like]: `%${departements}%`,
+                            [Op.iLike]: `%${departements}%`,
                         }
                     },
                     attributes: ['departement', 'category_id', 'id'],
@@ -84,31 +89,38 @@ module.exports = {
                     include: [{
                         where: {
                             course: {
-                                [Op.like]: `%${courses}%`,
+                                [Op.iLike]: `%${courses}%`,
                             }
                         },
                         attributes: ['course', 'id'],
                         model: Courses,
                         include: [{
-                            attributes: ['title'],
                             model: Questions,
+                            where: {
+                                title: {
+                                    [Op.iLike]: `%${title}`
+                                }
+                            },
+                            // attributes: ['title'],
                         }],
                     }],
                 }],
             })
             .then(result => {
-                if (result !== null) {
-                    res.status(200).json({
-                        status: "success",
+                if (!result[0]) {
+                    res.status(400).json({
+                        success: false,
+                        message: 'Data not found',
                         data: result
                     })
                 } else {
                     res.status(200).json({
-                        status: "success",
-                        message: "Data not found!",
+                        success: true,
+                        message: 'Success',
                         data: result
                     })
                 }
+
             })
     }
 }

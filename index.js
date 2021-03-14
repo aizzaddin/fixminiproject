@@ -22,13 +22,14 @@ const serviceRoute = require('./routes/serviceRoute')
 const transactionRoute = require('./routes/transactionRoute')
 const questionRoute = require('./routes/questionRoute')
 const cariRoute = require('./routes/cariRoute')
-const uploadRoute = require('./routes/uploadRoute')
-app.use(landingPageRoute, authRoute)
+const profileRoute = require('./routes/profileRoute')
 
 app.use(function(error, req, res, next) {
     res.send(error)
 })
 
+app.use(landingPageRoute)
+app.use(authRoute)
 app.use(dashboardRoute)
 app.use(answerRoute)
 app.use(subscriptionRoute)
@@ -36,6 +37,7 @@ app.use(serviceRoute)
 app.use(transactionRoute)
 app.use(cariRoute)
 app.use('/post', questionRoute)
+app.use(profileRoute)
 app.use(uploadRoute)
 
 const filesDir = path.join(path.dirname(require.main.filename), "uploads");
