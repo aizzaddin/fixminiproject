@@ -155,9 +155,9 @@
                            </div>
                            <!-- Keterangan Profile -->
                            <div class=profile-bar>
-                              <div class="profile-nama"> <%= data.name %>  </div>
+                              <div class="profile-nama"> <%= data.User.username %>  </div>
                               <span class="profile-jenis">Forum</span>
-                              <div class="profile-jurusan"> <%= data.bio %>  </div>
+                              <div class="profile-jurusan"> <%= data.User.bio %>  </div>
                            </div>
                         </div>
                      </div>
@@ -179,7 +179,7 @@
                         <!-- isi pertanyaan/Forum -->
                         <div class="col-sm-8 col-lg-10">
                            <div class="konten">
-                              <%= data.title  %> 
+                              <a href="/questions/<%= data.id %> "><%= data.title %></a> 
                            </div>
                            <!-- Preview Isi max 3 kalimat -->
                            <div class="preview-isi">
@@ -191,9 +191,9 @@
                               <li class="kategori"> Teknik </li>
                            </ul>
                            <!-- Tombol Jawab -->
-                           <button class="btn-answer">
+                           <a href="/questions/<%= data.id %>"><button class="btn-answer">
                            Jawab
-                           </button>
+                           </button></a>
                            <div class="konten-time">
                               2 menit yang lalu
                            </div>
@@ -208,7 +208,7 @@
                   <div id="popup1" class="popup">
                      <img class="img-question" src="views/assets/images/question.svg" alt="" />
                      <div class="popup-judul">Apa yang ingin kamu Tambahkan? </div>
-                     <a class="popup-pilihan" href="/post">Pertanyaan</a>
+                     <a class="popup-pilihan" href="/questions">Pertanyaan</a>
                   </div>
                   <a href="#" class="close-popup"></a>
                </div>

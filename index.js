@@ -37,7 +37,7 @@ app.use(subscriptionRoute)
 app.use(serviceRoute)
 app.use(transactionRoute)
 app.use(cariRoute)
-app.use('/post', questionRoute)
+app.use('/questions', questionRoute)
 app.use(profileRoute)
 app.use(uploadRoute)
 
