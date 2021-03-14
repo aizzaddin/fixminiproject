@@ -5,10 +5,10 @@ const restrict = passport.authenticate('jwt', {session: false, failureRedirect: 
 const transactionController = require("../controller/transactionController");
 
 // set endpoint url
-router.get("/transaction", restrict, transactionController.index)
-router.get("/transaction/:id", restrict, transactionController.show)
-router.post("/transaction", restrict, transactionController.create)
-router.put("/transaction/:id", restrict, transactionController.update)
-router.delete("/transaction/:id", restrict, transactionController.delete)
+router.get("/transaction",  transactionController.index)
+router.get("/transaction/:id",  transactionController.show)
+router.post("/transaction",  transactionController.create)
+router.put("/transaction/:id",  transactionController.update)
+router.delete("/transaction/:id",  transactionController.delete)
 
 module.exports = router

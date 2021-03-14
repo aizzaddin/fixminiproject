@@ -4,14 +4,15 @@
     overflow-x: hidden;
 }
 
-#leftPicture {
-    height: 708px;
-    width: 932px;
-    left: -212px;
+#background {
+    background: url(../images/register.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 #contenLogin {
-    margin: 143px 165px 48px 110px;
+    margin: 143px 165px 130px 110px;
 }
 
 #contenRegis {
@@ -103,6 +104,10 @@
     z-index: 11;
 }
 
+.form-control {
+    background-color: #fbfbfb;
+}
+
 .form-control,
 #btnSubmited {
     height: 55px;
@@ -113,19 +118,12 @@
 }
 
 
+
 #btnSubmited {
     margin-top: 30px;
     border-radius: 15px;
-}
-
-#btnSubmited:hover {
-    background-color: #2C448C;
-}
-
-#btnSubmited:focus {
-    background-color: #84ACF8;
-    outline: none;
-    box-shadow: none;
+    border: none;
+    background-color: #BCBCBC;
 }
 
 .form-control:focus {

@@ -102,6 +102,28 @@ input {
     border-radius: 15px;
 }
 
+.isi-1{
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 30px;
+z-index: 999;
+letter-spacing: 0.005em;
+padding-right: 154px;
+padding-bottom: 20px;
+padding-top: 150px;
+}
+
+.isi-2{
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 30px;
+letter-spacing: 0.005em;
+}
+
 li {
     font-family: Roboto;
     font-style: normal;
@@ -118,81 +140,53 @@ li {
     background-color: #c6d6f4;
     /* opacity: 0.4; */
     border-radius: 10px;
-    margin-bottom: 107px;
-    padding-bottom: 100px;
-    margin-top: 50px;
+     margin-bottom: 107px;
+     padding-bottom: 100px;
+     margin-top: 50px;
     margin-left: 20px;
-}
-
-.image-banner-4 {
+  }
+  
+  .image-banner-4 {
     width: 480px;
     height: 360px;
     left: 97px;
     top: 111px;
-    background: url(assets/image/banner.svg) no-repeat;
+    background-image: url(../images/banner/subbanner1.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
     border-radius: 10px;
     margin-bottom: 107px;
     margin-top: -488px;
-}
+  }
 
-.image-banner-5 {
+  .image-banner-5 {
     width: 480px;
     height: 360px;
     left: 97px;
     top: 111px;
-    background-color: black;
-    /* opacity: 0.4; */
-    border-radius: 10px;
-    margin-top: -390px;
-    margin-left: 70px;
-}
-
-.image-banner-6 {
-    width: 480px;
-    height: 360px;
-    left: 97px;
-    top: 111px;
-    background: url(assets/image/banner.svg);
+    background-image: url(../images/banner/subbanner2.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
     border-radius: 10px;
-    padding-top: 100px;
     margin-bottom: 107px;
-    margin-top: -385px;
-    margin-left: 50px;
-}
+    margin-top: -488px;
+  }
 
-.image-banner-7 {
+  .image-banner-6 {
     width: 480px;
     height: 360px;
     left: 97px;
     top: 111px;
-    background-color: red;
-    /* opacity: 0.4; */
-    border-radius: 10px;
-    margin-top: -345px;
-    margin-left: 120px;
-}
-
-.image-banner-8 {
-    width: 480px;
-    height: 360px;
-    left: 97px;
-    top: 111px;
-    background: url(assets/image/banner.svg);
+    background-image: url(../images/banner/subbanner3.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
     border-radius: 10px;
-    padding-top: 100px;
     margin-bottom: 107px;
-    margin-top: -385px;
-    margin-left: 100px;
-}
+    margin-top: -488px;
+  }
 
 .search {
     position: relative;

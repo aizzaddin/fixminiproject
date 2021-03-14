@@ -8,8 +8,12 @@ body{
     background-color: #F2F2F2;
 }
 
+.navbar-brand{
+    margin-left: 80px;
+   }
+
 #myNavbar {
-  padding-left: 662.5px;
+  padding-left: 502.5px;
 }
 
 .btn-search {
@@ -133,6 +137,7 @@ body{
     letter-spacing: 0.005em;
 
     /* color/text 1 */
+
     color: black;
 }
 
