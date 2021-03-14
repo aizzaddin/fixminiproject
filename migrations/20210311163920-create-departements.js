@@ -5,8 +5,7 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(22)
       },
       departement: {
         allowNull: false,
@@ -14,7 +13,7 @@ module.exports = {
       },
       category_id: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(22),
         references: {
           model: 'Categories',
           key: 'id'

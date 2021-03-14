@@ -6,7 +6,8 @@ const cariController = require("../controller/cariControllers");
 // set endpoint url
 router.get("/search", cariController.index)
 router.get("/cari?", cariController.show)
-    //router.get("/search/open/jawaban?:id", cariController.showjawaban)
+router.get("/filter?", cariController.filter)
+
 
 
 module.exports = router

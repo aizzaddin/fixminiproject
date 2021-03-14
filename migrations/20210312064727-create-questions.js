@@ -15,17 +15,9 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.TEXT
             },
-            media_id: {
-                allowNull: false,
-                type: Sequelize.STRING(22),
-                references: {
-                  model: 'Media',
-                  key: 'id'
-                }
-            },
             category_id: {
                 allowNull: false,
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING(22),
                 references: {
                   model: 'Categories',
                   key: 'id'
@@ -33,7 +25,7 @@ module.exports = {
             },
             departement_id: {
                 allowNull: false,
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING(22),
                 references: {
                   model: 'Departements',
                   key: 'id'
@@ -41,7 +33,7 @@ module.exports = {
             },
             course_id: {
                 allowNull: false,
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING(22),
                 references: {
                   model: 'Courses',
                   key: 'id'

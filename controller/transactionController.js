@@ -1,4 +1,5 @@
 const { Transactions } = require("../models")
+const moment = require("moment")
 
 module.exports = {
   index: (req, res) => {
@@ -6,7 +7,10 @@ module.exports = {
     .then(result => {
       res.status(200).json({
         status: "success",
-        data: result
+        data: result,
+        time1: moment(result.createdAt).add(365, 'days').calendar(),
+        time2: moment(result.createdAt).add(90, 'days').calendar(),
+        time3: moment(result.createdAt).add(30, 'days').calendar()
       })
     })
   },

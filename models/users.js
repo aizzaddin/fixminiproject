@@ -22,20 +22,19 @@ module.exports = (sequelize, DataTypes) => {
             }),
             this.hasMany(models.Transactions, {
                 foreignKey: "user_id"
-            }),
-            this.hasMany(models.Media, {
-                foreignKey: "user_id"
             })
         }
     };
     Users.init({
-        firstName: DataTypes.STRING,
-        lastName: DataTypes.STRING,
+        name: DataTypes.STRING,
         username: DataTypes.STRING,
         email: DataTypes.STRING,
         password: DataTypes.STRING,
         password2: DataTypes.STRING,
-        info: DataTypes.TEXT,
+        bio: DataTypes.TEXT,
+        site: DataTypes.STRING,
+        phoneNumber: DataTypes.INTEGER,
+        gender: DataTypes.STRING,
         role: DataTypes.ENUM('user', 'admin')
     }, {
         sequelize,
