@@ -1,4 +1,5 @@
-const { Transactions } = require("../models")
+const { Transactions, Services } = require("../models")
+const moment = require('moment')
 
 module.exports = {
   index: (req, res) => {
@@ -8,18 +9,27 @@ module.exports = {
         status: "success",
         data: result
       })
+      res.render('transaction', {
+        id: result.id,
+        time1: result.time1
+      })
     })
   },
   show: (req, res) => {
-    Transactions.findOne({
-      where: { id: Number(req.params.id) }
+    Services.findOne({
+      where: { id: req.params.id }
     })
     .then(result => {
       if (result !== null) {
-        res.status(200).json({
-          status: "success",
-          data: result
-        })
+          res.render('pembayaran', {
+            id: Date.now().toString(),
+            service: result.dataValues.service,
+            period: result.dataValues.period,
+            price: result.dataValues.price,
+            time1: moment(result.dataValues.createdAt).add(365, 'days').calendar(),
+            time2: moment(result.dataValues.createdAt).add(90, 'days').calendar(),
+            time3: moment(result.dataValues.createdAt).add(30, 'days').calendar()
+          })  
       } else {
         res.status(200).json({
           status: "success",

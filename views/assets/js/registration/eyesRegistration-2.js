@@ -3,8 +3,8 @@
 // KONFIRM PASSWORD
 $(function () {
     $("#toggle_pwd2").click(function () {
-        $(this).toggleClass("fa-eye fa-eye-slash");
-        var type = $(this).hasClass("fa-eye-slash") ? "text" : "password";
+        $(this).toggleClass("fa-eye-slash fa-eye ");
+        var type = $(this).hasClass("fa-eye") ? "text" : "password";
         $("#txtConfirmPassword").attr("type", type);
     });
 })

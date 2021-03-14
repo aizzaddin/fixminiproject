@@ -1,0 +1,236 @@
+.commentPertanyaan {
+    margin: 20px 420px 30px 400px;
+}
+
+textarea {
+    width: 100%;
+    height-max: 220px;
+    padding: 15px 0px 15px 0px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    border: none;
+    margin-top: 10px;
+    border-top: 2px solid black;
+}
+
+#descPertanyaan {
+    margin: 20px 20px 0px 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height-max: 280px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#referensi {
+    margin: 20px 0px 20px 16px;
+    padding-left: 20px;
+    border-radius: 5px;
+    height: 38px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.referensi {
+    margin: 20px 0px 20px 16px;
+    padding-left: 20px;
+    border-radius: 15px;
+    height: 38px;
+    width: 610px;
+    border: 1px solid black;
+    border-right: transparent;
+}
+
+.Reply {
+    margin: 20px 0px 0px 16px;
+    padding-left: 20px;
+    border-radius: 15px;
+    height: 38px;
+    width: 610px;
+    border: 1px solid black;
+    border-right: transparent;
+}
+
+.input-group-text {
+    margin: 20px 0px 20px 0px;
+    height: 38px;
+    border: 1px solid black;
+    background-color: transparent;
+    border-left: transparent;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.iniReply {
+    margin: 20px 0px 0px 16px;
+    padding-left: 20px;
+    border-radius: 15px;
+    height: 38px;
+    width: 610px;
+    border: 1px solid black;
+    border-right: transparent;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none !important;
+}
+
+.pertanyaan::placeholder {
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.005em;
+    text-align: left;
+}
+
+label {
+    padding: 0px 10px 0px 10px;
+    font-size: 25px;
+}
+
+#file {
+    display: none;
+}
+
+#garis {
+    padding-left: 350px;
+    padding-left: 350px;
+}
+
+#alert {
+    /* font/text 4 */
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;
+    /* identical to box height, or 183% */
+
+    letter-spacing: 0.005em;
+
+    /* color/other/red */
+
+    color: #C90000;
+    margin-left: 5px;
+}
+
+h5 {
+    /* font/heading 3 */
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.005em;
+
+    /* color/primary 1 */
+
+    color: #2C448C;
+}
+
+h6 {
+    /* font/text 3 */
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.005em;
+
+    /* color/other/disable */
+
+    color: #BCBCBC;
+}
+
+#kirimComment {
+    /* color/primary 1 */
+
+    background: #2C448C;
+    border-radius: 15px;
+    height: 40px;
+    width: 135px;
+    left: 0px;
+    top: 0px;
+    border-radius: 15px;
+    /* font/heading 3 */
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.005em;
+
+    /* color/text 2 */
+
+    color: #FBFBFB;
+    float: right;
+    margin-bottom: 50px;
+}
+
+
+#jawaban {
+    margin-left: 5px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+p {
+    /* font/text 3 */
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    letter-spacing: 0.005em;
+
+    /* color/text 1 */
+
+    color: #1A1A1A;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 10px 0px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+span {
+    margin: 5px;
+}
+
+#inputReply1,
+#inputReply2 {
+    display: none;
+}
