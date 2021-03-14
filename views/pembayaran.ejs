@@ -35,7 +35,13 @@
                             <div class="col-6">
                                 <p id="kodeTransaksi"><%= id %></p>
                                 <p><%= period %></p>
+                                <% if( period == 365){ %>
                                 <p id="tenggatPembayaran"><%= time1 %></p>
+                                <% } else if( period == 180 ) { %>
+                                <p id="tenggatPembayaran"><%= time2 %></p>
+                                <% } else { %>
+                                <p id="tenggatPembayaran"><%= time3 %></p>
+                                <% } %>
                             </div>
                         </div>
                     </div>
