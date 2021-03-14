@@ -25,10 +25,6 @@ const cariRoute = require('./routes/cariRoute')
 const profileRoute = require('./routes/profileRoute')
 const uploadRoute = require('./routes/uploadRoute')
 
-app.use(function(error, req, res, next) {
-    res.send(error)
-})
-
 app.use(landingPageRoute)
 app.use(authRoute)
 app.use(dashboardRoute)
@@ -40,6 +36,16 @@ app.use(cariRoute)
 app.use('/questions', questionRoute)
 app.use(profileRoute)
 app.use(uploadRoute)
+
+app.get('/:path', (req, res) => {
+  res.render(req.params.path, {}, (err, next) => {
+      if (err) {
+          res.render('404');
+      } else {
+          return next
+      }
+  });
+})
 
 const filesDir = path.join(path.dirname(require.main.filename), "uploads");
 if (!fs.existsSync(filesDir)){
