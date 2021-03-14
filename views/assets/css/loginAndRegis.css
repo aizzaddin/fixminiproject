@@ -4,15 +4,14 @@
     overflow-x: hidden;
 }
 
-#background {
-    background: url(../images/register.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: scroll;
+#leftPicture {
+    height: 708px;
+    width: 932px;
+    left: -212px;
 }
 
 #contenLogin {
-    margin: 143px 165px 130px 110px;
+    margin: 143px 165px 48px 110px;
 }
 
 #contenRegis {
@@ -116,7 +115,6 @@
     left: 0px;
     top: 0px;
 }
-
 
 
 #btnSubmited {

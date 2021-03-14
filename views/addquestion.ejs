@@ -22,11 +22,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="views/assets/css/pertanyaan.css" />
+    <link rel="stylesheet" href="../views/assets/css/pertanyaan.css" />
 
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="views/assets/js/buttonDIsable.js"></script>
+    <script src="../views/assets/js/buttonDIsable.js"></script>
 
     <title>Pertanyaan</title>
 </head>
@@ -35,8 +35,8 @@
     <section class="navigasi">
         <nav class="navbar navbar-expand-lg navbar-beranda">
             <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="views/assets/images/logo.svg" alt="" width="140">
+                <a class="navbar-brand" href="../dashboard">
+                    <img src="../views/assets/images/logo.svg" alt="" width="140">
                 </a>
                 <!-- navbar kanan -->
                 <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
@@ -63,9 +63,9 @@
                                     <div class="setting-title">Nama <br> asasass </div>
                                 </div>
                                 <div class="menu-profile">
-                                    <a class="dropdown-item" href="/profile"> View Info Profile</a>
-                                    <a class="dropdown-item" href="#">Berlangganan</a>
-                                    <a class="dropdown-item" href="/logout">Logout</a>
+                                    <a class="dropdown-item" href="../profile"> View Info Profile</a>
+                                    <a class="dropdown-item" href="../profile/berlangganan">Berlangganan</a>
+                                    <a class="dropdown-item" href="../logout">Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -81,11 +81,11 @@
             <div class="col-xl-11" id="formPertanyaan">
                 <div class="row">
                     <div class="col-1" style="padding-top: 15px;">
-                        <img src="views/assets/images/foto_profil.svg">
+                        <img src="../views/assets/images/foto_profil.svg">
                     </div>
 
                     <div class="col-10">
-                        <form action="/post/new" method="POST" style="padding-top: 20px;" class="regis">
+                        <form action="/questions/new" method="POST" style="padding-top: 20px;" class="regis">
                             <!-- USERNAME -->
                             <h5 class="mt-0"> <%= username  %>  <span id="jenis">Pertanyaan</span></h5>
                             <p id="prodi"> <%= bio %> </p>
@@ -94,7 +94,7 @@
                             <div id="descPertanyaan" style="margin-bottom: 100px;">
                                 <!-- input pertanyaan -->
                                 <div>
-                                    <input type="text" name="title" id="pertanyaan" placeholder="Pertanyaan">
+                                    <input type="text" name="title" id="pertanyaan" placeholder="Pertanyaan" required>
                                     <div id="alert">
                                         <p>* wajib</p>
                                     </div>
@@ -115,13 +115,13 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <input id="fakultas" name="category_id" placeholder="Kategori" value="52G1v7okaXFn5-SLbScCQ">
+                                                <input id="fakultas" name="category_id" placeholder="Kategori" value="52G1v7okaXFn5-SLbScCQ" required>
                                             </div>
                                             <div class="col-sm-4">
-                                                <input id="programStudi" name="departement_id" placeholder="Program Studi" value="Em4u7en-HySjRkfexaa_w">
+                                                <input id="programStudi" name="departement_id" placeholder="Program Studi" value="Em4u7en-HySjRkfexaa_w" required>
                                             </div>
                                             <div class="col-sm-4">
-                                                <input id="matkul" name="course_id" placeholder="Mata Kuliah" value="X6GMfRzyqAPwjeBRMZ7Hl">
+                                                <input id="matkul" name="course_id" placeholder="Mata Kuliah" value="X6GMfRzyqAPwjeBRMZ7Hl" required>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@
 
 
                             <!-- Script button disable/enable-->
-                            <script src="views/assets/js/buttonDIsable.js"></script>
+                            <script src="../views/assets/js/buttonDIsable.js"></script>
 
                             <!-- TOMBOL MASYOK -->
                             
@@ -161,11 +161,11 @@
     <script>
         new FroalaEditor('#edit', {
             // Set the file upload URL.
-            fileUploadURL: 'file_upload',
+            fileUploadURL: '../file_upload',
             fileUploadParams: {
                 id: 'my_editor'
             },
-            imageUploadURL: 'image_upload',
+            imageUploadURL: '../image_upload',
             imageUploadParams: {
                 id: 'my_editor'
             }
