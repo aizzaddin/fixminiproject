@@ -1,5 +1,6 @@
 const {
-    Questions, Users
+    Questions,
+    Users
 } = require("../models")
 const {
     nanoid
@@ -8,24 +9,16 @@ const {
 module.exports = {
     index: (req, res) => {
         Users.findOne({
-            where: {
-                id: req.user.id
-            }
-        })
-        .then(result => {
-            if (result !== null) {
-                res.render('pertanyaan', {
+                where: {
+                    id: req.user.id
+                }
+            })
+            .then(result => {
+                res.render('addquestion', {
                     username: result.username,
                     bio: result.bio
                 })
-            } else {
-                res.status(200).json({
-                    status: "success",
-                    message: "Data not found!",
-                    data: result
-                })
-            }
-        })
+            })
     },
     create: (req, res) => {
         const {
@@ -49,6 +42,22 @@ module.exports = {
                 res.status(201)
                 res.redirect('/dashboard')
             })
+    },
+    details: (req, res) => {
+        Questions.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [{
+                model: Users
+            }]
+        }).then(result => {
+            res.render('questions', {
+                title:  result.title,
+                question: result.question,
+                username: result.User.username
+            })
+        })
     },
     update: (req, res) => {
         const {

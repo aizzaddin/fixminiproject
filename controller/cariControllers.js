@@ -31,7 +31,7 @@ module.exports = {
     },
     //searching by title(judul)
     show: (req, res) => {
-        const { title, question, category_id } = req.body
+        const { title, question, category_id } = req.query
         Questions.findAll({
                 limit: 10,
                 where: {

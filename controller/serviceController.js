@@ -4,10 +4,7 @@ module.exports = {
   index: (req, res) => {
     Services.findAll()
     .then(result => {
-      res.status(200).json({
-        status: "success",
-        data: result
-      })
+      res.render('berlangganan') 
     })
   },
   show: (req, res) => {

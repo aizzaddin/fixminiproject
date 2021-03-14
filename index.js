@@ -8,8 +8,10 @@ const fs = require('fs')
 
 app.use(express.json())
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(__dirname +'/'));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(express.static(__dirname + '/'));
 app.use(cookieParser())
 app.set('view engine', 'ejs');
 
@@ -25,10 +27,6 @@ const cariRoute = require('./routes/cariRoute')
 const profileRoute = require('./routes/profileRoute')
 const uploadRoute = require('./routes/uploadRoute')
 
-app.use(function(error, req, res, next) {
-    res.send(error)
-})
-
 app.use(landingPageRoute)
 app.use(authRoute)
 app.use(dashboardRoute)
@@ -37,16 +35,29 @@ app.use(subscriptionRoute)
 app.use(serviceRoute)
 app.use(transactionRoute)
 app.use(cariRoute)
-app.use('/post', questionRoute)
+app.use('/questions', questionRoute)
 app.use(profileRoute)
 app.use(uploadRoute)
+app.get('/about', (req, res) => {
+  res.render('about')
+})
+
+app.get('/:path', (req, res) => {
+  res.render(req.params.path, {}, (err, next) => {
+    if (err) {
+      res.render('404');
+    } else {
+      return next
+    }
+  });
+})
 
 const filesDir = path.join(path.dirname(require.main.filename), "uploads");
-if (!fs.existsSync(filesDir)){
+if (!fs.existsSync(filesDir)) {
   fs.mkdirSync(filesDir);
 }
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-    console.log(`yeee web server nya udah jalan di http://localhost:${port}`);
+  console.log(`yeee web server nya udah jalan di http://localhost:${port}`);
 })

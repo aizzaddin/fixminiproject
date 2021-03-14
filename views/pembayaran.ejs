@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="../views/assets/css/pembayaran.css">
+    <title>Pembayaran</title>
+</head>
+<body style="background-color: #e5e5e5;">
+    <div id="content" >
+        <!-- LOGO ATAS -->
+        <div id="logo" align="center" style="margin-bottom: 70px;">
+            <img src="../views/assets/images/website.svg" alt="" id="logoBetewe">
+            <h1>Ringkasan Pembayaran</h1>
+        </div>
+
+        <!-- DETAIL PEMBAYARAN -->
+        <div class="container" id="detail">
+            <div class="row">
+                <div class="col-6" id="jenisBerlangganan" style="padding-right: 30px;">
+                    
+                    <!-- Pilihan Paket -->
+                    <h5 align"left" id="pilihanPaket">Sangat Eksklusif - Langganan tahunan</h5>
+                    <h6 style="margin-bottom: 12px;">Penagihan dilakukan setiap tahun</h6>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Kode Transaksi</p>
+                                <p>Lama Berlangganan</p>
+                                <p>Pembayaran Selanjutnya</p>
+                            </div>
+                            <div class="col-6">
+                                <p id="kodeTransaksi"><%= id %></p>
+                                <p><%= period %></p>
+                                <% if( period == 365){ %>
+                                <p id="tenggatPembayaran"><%= time1 %></p>
+                                <% } else if( period == 180 ) { %>
+                                <p id="tenggatPembayaran"><%= time2 %></p>
+                                <% } else { %>
+                                <p id="tenggatPembayaran"><%= time3 %></p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="padding-left: 0px; font-size: 14px;">Kami akan mengingatkan Anda 7 hari sebelum langganan Anda diperbarui.</p>
+                    
+                    <!-- Langkah-langkah Pembayaran -->
+                    <div id="langkahPembayaran" style="margin-top: 60px;">
+                        <h5>Langkah-langkah Pembayaran:</h5><br>
+                            <ol style="margin: 0px;">
+                                <li>Pastikan Ringkasan Pembayaran sudah sesuai dengan pilihan Anda.</li>
+                                <li>Lakukan transfer dana sesuai dengan nominal yang tertera di atas dengan tujuan Bank BCA, No. Rekening 08-7382-9284  atas nama Betewe Apaya.</li>
+                                <li>Harap mencantumkan Kode Transaksi pada kolom Berita Transfer.</li>
+                                <li>Cetak dan/atau simpan bukti transfer Anda.</li>
+                                <li>Jika proses sudah berhasil, mohon konfirmasi dengan mengirimkan bukti transfer ke alamat surel betewe@contact.com dengan Subject “Konfirmasi Pembayaran + Kode Transaksi”.</li>
+                            </ol> 
+                    </div>
+            
+                    <!-- Catatan -->
+                    <div id="catatan" style="margin-top: 50px;">
+                         <h5>Catatan:</h5><br>
+                            <ol style="margin: 0px;">
+                                <li>Anda dapat menggunakan bank mana pun untuk mentransfer, tambahkan kode Bank BCA yaitu 014, biaya transfer mungkin berlaku.</li>
+                                <li>Harap selesaikan pembayaran sebelum waktu habis.</li>
+                                <li>Jika Anda mengalami masalah dalam melakukan pembayaran online, harap gunakan metode transfer manual.</li>
+                            </ol> 
+                    </div>
+                </div>
+
+
+                <!-- Detail Pembayaran -->
+                <div class="col-6" id="detailPembayaran">
+                    <h5 id="pilihanPaket">Detail Pembayaran</h5>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <p id="pilihanPaket">Program Sangat Eksklusif </p>
+                                <p>Diskon</p>
+                            </div>
+                            <div class="col-4" style="text-align: right;">
+                                <p id="harga">Rp <%= price %></p>
+                                <p >Rp</p></p>                                
+                            </div>
+                            <a href="">Tambahkan Voucer/Kode Refeal</a>
+                        </div>
+                    </div>
+                    <img src="../views/assets/images/Vector 9.svg" alt="" style="align-content: center;">
+                     <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <h5>Total Pembayaran</h5>
+                            </div>
+                            <div class="col-6">
+                                <h5 style="text-align: right;" id="biayaTotal">Rp <%= price %> </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Detail Penagihan -->
+        <div id="penagihan" style="margin-top: 140px;">
+            <h3 id="DetailPenagihan">
+                Detail penagihan: <br>
+                Dengan mengklik "Beli" Anda menyatakan bahwa Anda telah membaca dan menyetujui Persyaratan Penggunaan dan Kebijakan Privasi kami, dan Anda setuju bahwa Anda akan dikenakan harga yang sama setiap 12 bulan sampai Anda membatalkan keanggotaan Anda. Anda dapat membatalkan langganan Anda dengan mengakses bagian pengaturan Akun di akun Anda.
+            </h3>
+        </div>
+    </div>
+
+    <!--  Footer -->
+    <div class= "container-footer">
+        <h6 id="tulisanFooter">©2020 PT Betewe Apa ya. All Rights Reserved</h6>
+        <h6 id="tulisanFooter" style="margin-top: 8px;">Privacy — Terms</h6>
+    </div> 
+</body>
+</html>

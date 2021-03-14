@@ -3,8 +3,8 @@
 // INPUT PASSWORD
 $(function () {
     $("#toggle_pwd1").click(function () {
-        $(this).toggleClass("fa-eye fa-eye-slash");
-        var type = $(this).hasClass("fa-eye-slash") ? "text" : "password";
+        $(this).toggleClass("fa-eye-slash fa-eye");
+        var type = $(this).hasClass("fa-eye") ? "text" : "password";
         $("#txtPassword").attr("type", type);
     });
 });
