@@ -1,17 +1,15 @@
-const { Questions } = require("../models")
-const moment = require("moment")
-const {nanoid} = require('nanoid')
+const { Questions, Users } = require("../models")
 
 module.exports = {
   index: (req, res) => {
     Questions.findAll({
-      attributes: ['title', 'user_id', 'question', 'category_id', 'course_id'],
-  })
+      include: [{
+        model: Users
+      }]
+    })
     .then(result => {
-      res.status(200).json({
-        status: "success",
-        data: result,
-      })
+      res.status(200)
+      res.render('beranda', { result: result })
     })
   },
   show: (req, res) => {

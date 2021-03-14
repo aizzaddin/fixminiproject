@@ -6,8 +6,11 @@ const profileController = require("../controller/profileController");
 
 // set endpoint url
 //router.get("/editprofile", restrict, profileController.index)
-router.get("/profile", profileController.show)
-router.put("/profile/update", profileController.update)
-router.put("/profile/edit-password", profileController.updatepassword)
+router.get("/profile", restrict, profileController.show)
+router.put("/profile/update", restrict, profileController.update)
+router.get("/profile/editpassword", restrict, profileController.getpassword)
+router.put("/profile/editpassword", restrict, profileController.updatepassword)
+router.get("/profile/berlangganan", restrict, profileController.berlangganan)
+
 
 module.exports = router

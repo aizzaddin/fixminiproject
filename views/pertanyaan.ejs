@@ -63,9 +63,9 @@
                                     <div class="setting-title">Nama <br> asasass </div>
                                 </div>
                                 <div class="menu-profile">
-                                    <a class="dropdown-item" href="#"> View Info Profile</a>
+                                    <a class="dropdown-item" href="/profile"> View Info Profile</a>
                                     <a class="dropdown-item" href="#">Berlangganan</a>
-                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a class="dropdown-item" href="/logout">Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -85,10 +85,10 @@
                     </div>
 
                     <div class="col-10">
-                        <form action="/api/addQuestion" method="POST" style="padding-top: 20px;" class="regis">
+                        <form action="/post/new" method="POST" style="padding-top: 20px;" class="regis">
                             <!-- USERNAME -->
-                            <h5 class="mt-0">Nama <span id="jenis">Pertanyaan</span></h5>
-                            <p id="prodi">S1 Sastra Indonesia</p>
+                            <h5 class="mt-0"> <%= username  %>  <span id="jenis">Pertanyaan</span></h5>
+                            <p id="prodi"> <%= bio %> </p>
 
                             <!-- Deskripsi Pertanyaan -->
                             <div id="descPertanyaan" style="margin-bottom: 100px;">
@@ -115,18 +115,21 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <input id="fakultas" placeholder="Kategori">
+                                                <input id="fakultas" name="category_id" placeholder="Kategori" value="52G1v7okaXFn5-SLbScCQ">
                                             </div>
                                             <div class="col-sm-4">
-                                                <input id="programStudi" placeholder="Program Studi">
+                                                <input id="programStudi" name="departement_id" placeholder="Program Studi" value="Em4u7en-HySjRkfexaa_w">
                                             </div>
                                             <div class="col-sm-4">
-                                                <input id="matkul" placeholder="Mata Kuliah">
+                                                <input id="matkul" name="course_id" placeholder="Mata Kuliah" value="X6GMfRzyqAPwjeBRMZ7Hl">
                                             </div>
                                         </div>
                                     </div>
                                     <div id="alert" style="margin-top: 10px;">
                                         <p>* wajib</p>
+                                    </div>
+                                    <div class="d-grid gap-2 col-12 mx-block">
+                                        <button type="submit" id="" value="submit">Kirim</button>
                                     </div>
                                 </div>
                             </div>
@@ -136,9 +139,7 @@
                             <script src="views/assets/js/buttonDIsable.js"></script>
 
                             <!-- TOMBOL MASYOK -->
-                            <div class="d-grid gap-2 col-12 mx-block">
-                                <button type="submit" id="btnSubmited" value="Submit form" disabled>Kirim</button>
-                            </div>
+                            
                         </form>
                     </div>
                 </div>

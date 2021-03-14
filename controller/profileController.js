@@ -12,9 +12,14 @@ module.exports = {
             })
             .then(result => {
                 if (result !== null) {
-                    res.status(200).json({
-                        status: "success",
-                        data: result
+                    res.render('profile', {
+                        name: result.name,
+                        username: result.username,
+                        email: result.email,
+                        bio: result.bio,
+                        site: result.site,
+                        phoneNumber: result.phoneNumber,
+                        gender: result.gender
                     })
                 } else {
                     res.status(200).json({
@@ -53,10 +58,8 @@ module.exports = {
                 }
             })
             .then(() => {
-                res.status(201).json({
-                    status: "success",
-                    message: "Update Profile success!"
-                })
+                res.status(201)
+                res.redirect('/profile')
             })
     },
     updatepassword: async (req, res) => {
@@ -91,5 +94,11 @@ module.exports = {
                 message: "Update Password Failed!"
             })
         }
+    },
+    getpassword: (req, res) => {
+        res.render('setelan-editPassword')
+    },
+    berlangganan: (req, res) => {
+        res.render('setelan-berlangganan')
     }
 }

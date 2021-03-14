@@ -23,6 +23,7 @@ const transactionRoute = require('./routes/transactionRoute')
 const questionRoute = require('./routes/questionRoute')
 const cariRoute = require('./routes/cariRoute')
 const profileRoute = require('./routes/profileRoute')
+const uploadRoute = require('./routes/uploadRoute')
 
 app.use(function(error, req, res, next) {
     res.send(error)
