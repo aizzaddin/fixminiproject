@@ -36,6 +36,7 @@
                         <p id="Leher">Masuk dan temukan jawaban dari rasa penasaranmu.</p>
                     </div>
                     <p id="pendaftaranberhasil">Pendaftaran berhasil. Silahkan Login!</p>
+                    <p id="passwordsalah">Username/Password anda Salah</p>
                     <form action="/login" method="POST" style="padding-top: 20px;">
                         <!-- USERNAME -->
                         <div class="input-group mb-3" id="inputUser">
@@ -77,13 +78,6 @@
                         </div>
                         <p id="valPass"></p>
 
-
-                    <!-- TOMBOL MASYOK -->
-                    <div class="d-grid gap-2 col-12 mx-block">
-                        <button class="btn btn-secondary" type="button" id="btnSubmited"
-                            value="Submit form">Masuk</button>
-                    </div>
-
                         <!-- TOMBOL MASYOK -->
                         <div class="d-grid gap-2 col-12 mx-block">
                             <button class="btn btn-secondary" type="submit" id="btnSubmited"
@@ -97,6 +91,14 @@
                             const myParam = urlParams.get('message');
                             if (myParam == "pendaftaran_berhasil") {
                                 $('#pendaftaranberhasil').show();
+                            }
+                        </script>
+                        <script>
+                            $('#passwordsalah').hide();
+                            const urlParam = new URLSearchParams(window.location.search);
+                            const mParam = urlParam.get('message');
+                            if (mParam == "password_salah") {
+                                $('#passwordsalah').show();
                             }
                         </script>
 

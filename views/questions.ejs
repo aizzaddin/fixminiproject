@@ -63,7 +63,7 @@
       
 
       <section class= "pertanyaan">
-         <div class="container">
+         <div class="container" style="padding-top: 25px;">
             <!-- Pertanyaan -->
             <div class="row">
                <!-- Foto Profil Isi -->
@@ -72,7 +72,7 @@
                </div>
                <div class="col-lg-10">
                <!-- Setting -->
-               <a class="setting" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <!-- <a class="setting" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <img src="../views/assets/images/options.svg" class="img-setting" width="24px">
                </a>
                   <div class="dropdown-menu" id="menu-setting">
@@ -81,12 +81,12 @@
                      <a class="dropdown-setting" href="#"><i class="far fa-bell"></i> Beritahu Perubahan</a>
                      <a class="dropdown-setting" href="#"><i class="far fa-frown"></i> Tidak tertarik</a>
                      <a class="dropdown-setting" href="#"><i class="far fa-flag"></i> Laporkan</a>
-                  </div>
+                  </div> -->
                   <!-- Keterangan Profile -->
                   <div class=profile-bar>
-                     <div class="profile-nama"> <%= username %>  </div>
-                     <span class="profile-jenis">Forum</span>
-                     <div class="profile-jurusan"> S1 Teknik Arsitektur</div>
+                     <div class="profile-nama"> <%= users[0].username %>  </div>
+                     <span class="profile-jenis">Pertanyaan</span>
+                     <div class="profile-jurusan"> <%= users[0].bio %> </div>
                   </div>
                </div>
             </div>
@@ -98,7 +98,7 @@
                         <button><img src="../views/assets/images/up.svg" alt=""></button>
                      </div>
                      <div class="count-vote">
-                        35
+                        0
                      </div>
                      <div class="dislike">
                         <button><img src="../views/assets/images/down.svg" alt=""></button>
@@ -108,16 +108,17 @@
                <!-- isi pertanyaan/Forum -->
                <div class="col-sm-8 col-lg-10" style=" padding-bottom: 20px;border-bottom: 1px solid black;">
                   <div class="konten">
-                     <%= title %> 
+                     <%= questions.title %> 
                   </div>
                   <!-- Preview Isi max 3 kalimat -->
                   <div>
-                     <%- question %> 
+                     <%- questions.question %> 
                   </div>
                   <!-- Kategori Pertanyaan/forum -->
                   <ul class="tag-kategori">
-                     <li class="kategori"> Sejarahssss </li>
-                     <li class="kategori"> Teknik </li>
+                     <li class="kategori"> <%= categories[0].category %>  </li>
+                     <li class="kategori"> <%= departements[0].departement %> </li>
+                     <li class="kategori"> <%= courses[0].course %> </li>
                   </ul>
                   <!-- button jawab -->
                   <a href="commentPertanyaan.html">
@@ -126,7 +127,7 @@
                      </button>
                   </a>
                   <div class="konten-time">
-                     2 menit yang lalu
+                     <%= moment(questions.createdAt).fromNow() %> 
                   </div>
                </div>
             </div>

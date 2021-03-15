@@ -1,24 +1,32 @@
 const {
     Questions,
-    Users
+    Users,
+    Categories,
+    Departements,
+    Courses,
+    Answers
 } = require("../models")
 const {
     nanoid
 } = require('nanoid')
+const moment = require('moment')
 
 module.exports = {
-    index: (req, res) => {
-        Users.findOne({
-                where: {
-                    id: req.user.id
-                }
-            })
-            .then(result => {
-                res.render('addquestion', {
-                    username: result.username,
-                    bio: result.bio
-                })
-            })
+    index: async (req, res) => {
+        const user = await Users.findOne({
+            where: {
+                id: req.user.id
+            }
+        })
+        const categories = await Categories.findAll()
+        const departements = await Departements.findAll()
+        const courses = await Courses.findAll()
+        res.render('addquestion', {
+            user,
+            categories,
+            departements,
+            courses
+        })
     },
     create: (req, res) => {
         const {
@@ -40,24 +48,37 @@ module.exports = {
             })
             .then(() => {
                 res.status(201)
-                res.redirect('/dashboard')
+                console.log(category_id, departement_id, course_id),
+                    res.redirect('/dashboard')
+            })
+            .catch(() => {
+                console.log(category_id, departement_id, course_id);
+                res.redirect('/questions?message=' + encodeURIComponent('input_salah'))
             })
     },
-    details: (req, res) => {
-        Questions.findOne({
+    details: async (req, res) => {
+        const questions = await Questions.findOne({
             where: {
                 id: req.params.id
-            },
-            include: [{
-                model: Users
-            }]
-        }).then(result => {
-            res.render('questions', {
-                title:  result.title,
-                question: result.question,
-                username: result.User.username
-            })
+            }
         })
+        const users = await Users.findAll({
+            attribute: ['username']
+        })
+        const categories = await Categories.findAll({
+            attribute: ['category']
+        })
+        const departements = await Departements.findAll({
+            attribute: ['departement']
+        })
+        const courses = await Courses.findAll({
+            attribute: ['course']
+        })
+        const answers = await Answers.findAll({
+            attribute: ['answer']
+        })
+        // console.log(users);
+        res.render('questions', {questions, moment, users, categories, departements, courses, answers})
     },
     update: (req, res) => {
         const {

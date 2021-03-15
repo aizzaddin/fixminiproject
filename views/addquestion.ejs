@@ -23,6 +23,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../views/assets/css/pertanyaan.css" />
+    <link rel="stylesheet" href="../views/assets/css/beranda.css" />
 
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -77,6 +78,9 @@
 
     <div class="container">
         <div class="row">
+            <p id="pesangagal" style="padding-top: 10px; padding-bottom: 10px; text-align: center;">Harap perhatikan
+                data yang anda masukkan. Kategori, Program Studi dan Mata Kuliah harus sesuai.</p>
+
             <!-- Konten Kiri -->
             <div class="col-xl-11" id="formPertanyaan">
                 <div class="row">
@@ -87,8 +91,8 @@
                     <div class="col-10">
                         <form action="/questions/new" method="POST" style="padding-top: 20px;" class="regis">
                             <!-- USERNAME -->
-                            <h5 class="mt-0"> <%= username  %>  <span id="jenis">Pertanyaan</span></h5>
-                            <p id="prodi"> <%= bio %> </p>
+                            <h5 class="mt-0"> <%= user.username  %> <span id="jenis">Pertanyaan</span></h5>
+                            <p id="prodi"> <%= user.bio %> </p>
 
                             <!-- Deskripsi Pertanyaan -->
                             <div id="descPertanyaan" style="margin-bottom: 100px;">
@@ -115,40 +119,82 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <input id="fakultas" name="category_id" placeholder="Kategori" value="52G1v7okaXFn5-SLbScCQ" required>
+                                                <div class="matkul-dropdown">
+                                                    <select name="category_id" class="form-control"
+                                                        id="form-matkul" onfocus='this.size=5;' onblur='this.size=1;'
+                                                        onchange='this.size=10; this.blur();'>
+                                                        <option class="pilih-matkul" value="" selected>--Pilih
+                                                            Kategori--</option>
+                                                        <% for(var i=0; i<categories.length; i++) {%>
+                                                        <option class="pilih-matkul" value="<%= categories[i].id %>">
+                                                            <%= categories[i].category %> </option>
+                                                        <% } %>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <input id="programStudi" name="departement_id" placeholder="Program Studi" value="Em4u7en-HySjRkfexaa_w" required>
+                                                <div class="matkul-dropdown">
+                                                    <select name="departement_id" class="form-control"
+                                                        id="form-matkul" onfocus='this.size=5;' onblur='this.size=1;'
+                                                        onchange='this.size=10; this.blur();'>
+                                                        <option class="pilih-matkul" value="" selected>--Pilih Program
+                                                            Studi--</option>
+                                                        <% for(var i=0; i<departements.length; i++) {%>
+                                                        <option class="pilih-matkul" value="<%= departements[i].id %>">
+                                                            <%= departements[i].departement %> </option>
+                                                        <% } %>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <input id="matkul" name="course_id" placeholder="Mata Kuliah" value="X6GMfRzyqAPwjeBRMZ7Hl" required>
+                                                <div class="matkul-dropdown">
+                                                    <select name="course_id" class="form-control"
+                                                        id="form-matkul" onfocus='this.size=5;' onblur='this.size=1;'
+                                                        onchange='this.size=10; this.blur();'>
+                                                        <option class="pilih-matkul" value="" selected>--Pilih Mata
+                                                            Kuliah--</option>
+                                                        <% for(var i=0; i<courses.length; i++) {%>
+                                                        <option class="pilih-matkul" value="<%= courses[i].id %>">
+                                                            <%= courses[i].course %> </option>
+                                                        <% } %>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="alert" style="margin-top: 10px;">
                                         <p>* wajib</p>
                                     </div>
+                                    <div class="container-footer"
+                                        style="padding-bottom: 25px; padding-top: 25px; text-align: center;">
+                                        <h6>©2020 PT Betewe Apa ya. All Rights Reserved</h6>
+                                        <h6 style="margin-top: 8px;">Privacy — Terms</h6>
+                                    </div>
                                     <div class="d-grid gap-2 col-12 mx-block">
-                                        <button type="submit" id="" value="submit">Kirim</button>
+                                        <button type="submit" id="btnSubmited" value="Submit form">Kirim</button>
                                     </div>
                                 </div>
                             </div>
 
-
+                            <script>
+                                $('#pesangagal').hide();
+                                const urlParam = new URLSearchParams(window.location.search);
+                                const mParam = urlParam.get('message');
+                                if (mParam == "input_salah") {
+                                    $('#pesangagal').show();
+                                }
+                            </script>
                             <!-- Script button disable/enable-->
                             <script src="../views/assets/js/buttonDIsable.js"></script>
 
                             <!-- TOMBOL MASYOK -->
-                            
+
                         </form>
                     </div>
                 </div>
             </div>
-
-            <!-- Space untuk tombol kirim -->
-            <div class="col-xl-2">
-            </div>
         </div>
+    </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/js/froala_editor.pkgd.min.js">
     </script>
@@ -171,6 +217,8 @@
             }
         })
     </script>
+
+
 </body>
 
 </html>
