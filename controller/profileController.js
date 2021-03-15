@@ -1,9 +1,30 @@
 const {
-    Users
+    Users,
+    Questions,
+    Categories,
+    Departements,
+    Courses,
 } = require("../models")
 const bcrypt = require('bcrypt')
 
 module.exports = {
+    index: async (req, res) => {
+        const questions = await Questions.findOne({
+            where: {user_id : req.user.id },
+            include: [{
+                model: Users
+            }]
+        })
+        const categories = await Categories.findAll({
+            attribute: ['category']
+        })
+        const departements = await Departements.findAll({
+            attribute: ['departement']
+        })
+        const courses = await Courses.findAll({
+            attribute: ['course']
+        })
+    },
     show: (req, res) => {
         Users.findOne({
                 where: {
@@ -73,7 +94,7 @@ module.exports = {
                 id: req.user.id
             }
         })
-        if (await bcrypt.compare(oldpassword, cekpassword.password)){
+        if (await bcrypt.compare(oldpassword, cekpassword.password)) {
             Users.update({
                     password: await bcrypt.hash(password, 10),
                     password2: await bcrypt.hash(password2, 10)
