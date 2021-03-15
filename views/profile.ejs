@@ -1,281 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
-
+            
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 
     <!-- CSS -->
-    <link rel="stylesheet" href="views/assets/css/editProfil.css" />
+    <link rel="stylesheet" href="views/assets/css/profil.css">
 
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="views/assets/js/changePassword/eyeslash.js"></script>
 
-    <title>BETEWE</title>
+    <title>Profil</title>
 </head>
-
 <body>
+
     <section class="navigasi">
         <nav class="navbar navbar-expand-lg navbar-beranda">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="views/assets/images/logo.svg" alt="" width="140">
-                </a>
-                <!-- navbar kanan -->
-                <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-                    <ul class="navbar-nav navbar-right ml-auto flex-nowrap">
-                        <li class="nav-item">
-                            <div class="search"> <input type="text" class="form-control" placeholder="Cari"
-                                    style="margin-top:10px;"> <button class="btn-search "><i
-                                        class="fa fa-search"></i></button> </div>
-                        </li>
-                        <li class="nav-item">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="views/assets/images/logo.svg" alt="" width="140" >
+                    </a>
+                    <!-- navbar kanan -->
+                    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                        <ul class="navbar-nav navbar-right ml-auto flex-nowrap">
+                            <li class="nav-item">
+                            <div class="search"> <input type="text" class="form-control" placeholder="Cari" style="margin-top:10px;"> <button class="btn-search "><i class="fa fa-search"></i></button> </div>
+                            </li>
+                            <li class="nav-item">
                             <div class="circle-button"><i class="far fa-bell"></i></div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                                    class="img-circle">
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="./views/assets/images/Ava user.svg" class="img-circle">
                             </a>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" >
                                 <div class="profile-wrap">
-                                    <a class="dropdown-pict" id="coba" href="#"> <img
-                                            src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                                            class="img-circle-big"> </a>
+                                    <a class="dropdown-pict" id="coba" href="#">  <img src="./views/assets/images/Ava user.svg" class="img-circle-big"> </a>
                                     <div class="setting-title">Nama <br> asasass </div>
                                 </div>
                                 <div class="menu-profile">
-                                    <a class="dropdown-item" href="/profile"> View Info Profile</a>
+                                    <a class="dropdown-item" href="#"> View Info Profile</a>
                                     <a class="dropdown-item" href="#">Berlangganan</a>
-                                    <a class="dropdown-item" href="/logout">Logout</a>
+                                    <a class="dropdown-item" href="#">Logout</a>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>  
         </nav>
     </section>
 
-    <div id="contentEditProfile">
+    
+    <!-- CONTENT -->
+    <div id="contentUtama">
         <div class="container">
-
             <div class="row">
-                <!-- "setting-profile-user" -->
-                <div class="col-3">
-                    <div class="container">
-                        <h4 id="setelan">Setelan</h4>
-                        <div class="border-pemisah"></div>
-                        <div class="teks-setelan">
-                            <a href="/profile">
-                                <h6>Edit Profil</h6>
-                            </a>
-                            <a href="/profile/editpassword">
-                                <h6>Ubah Kata Sandi</h6>
-                            </a>
-                            <a href="/profile/berlangganan">
-                                <h6>Berlangganan</h6>
-                            </a>
-                            <h6>Notifikasi</h6>
-                            <h6>QnA</h6>
-                            <h6>Pelayanan Pelanggan</h6>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- profile-edit -->
-                <div class="col-7">
-                    <!-- foto -->
-                    <div class="container">
-                        <div class="row" id="change-photo">
-                            <div class="col-4">
-                                <img src="/views/assets/images/Ava user.svg" alt="..." class="img-profile">
+                <!-- PROFIL PENGGUNA -->
+                <div class="col-lg-4" id="profilUser">
+                    <div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/profile/edit"><button type="button" class="btn"><img src="views/assets/images/edit.svg" alt=""></button></a>
+                        </div>
+                        <img id="fotoUser" src="views/assets/images/Ava user.svg" alt="">
+                    </div>
+                    <div>
+                        <h3 id="userName"><%= questions[0].User.name %> </h3>
+                        <h5 id="prodi"><%= questions[0].User.bio %> </h5>
+                    </div>
+
+                    <!-- detailPengguna -->
+                    <div class="container" id="detailPengguna">
+                        <div class="row">
+                            <div class="col-5">
+                                <h6>Nama Pengguna</h6>
+                                <h6>Email</h6>
+                                <h6>Situs</h6>
                             </div>
-                            <div class="col-8" id="namaNprodi">
-                                <h3 id="tampilan-username"><%= username %> </h3>
-                                <h5>Ubah foto profil</h5>
+                            <div class="col-7">
+                                <h6 id="detail">@<%= questions[0].User.username %> </h6>
+                                <h6 id="detail"><%= questions[0].User.email %> </h6>
+                                <h6 id="detail"><%= questions[0].User.site %> </h6>
                             </div>
                         </div>
                     </div>
 
-                    <!-- nama Tampilan -->
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col-4">
-                                <h4>Nama Tampilan</h4>
-                            </div>
-                            <div class="col-8">
-                                <input type="text" class="form-change-bio" name="" id="displayName"
-                                    placeholder="<%= name %> ">
-                                <p>
-                                    Bantu orang menemukan akun Anda dengan menggunakan nama yang Anda
-                                    kenal: baik nama lengkap maupun nama panggilan Anda.
-                                    <br>
-                                    <br>
-                                    Anda hanya dapat mengubah nama Anda dua kali dalam 14 hari.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <form action="/profile/update" method="POST">
-                        <!-- Nama pengguna -->
-                        <div class="container">
-                            <div class="row ">
-                                <div class="col-4">
-                                    <h4>Nama Pengguna</h4>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-change-bio" name="" id="userName"
-                                        placeholder="<%= username %> ">
-                                    <p>
-                                        Anda dapat mengubah kembali nama pengguna Anda setelah 14 hari dari perubahan
-                                        terakhir.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bio -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-4">
-                                    <h4>Bio</h4>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-change-bio" name="" id="input-bio"
-                                        placeholder="<%= bio %> ">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Situs -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-4">
-                                    <h4>Situs</h4>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-change-bio" name="" id="input-situs"
-                                        placeholder="<%= site %> ">
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-
-                        <!-- info -->
-                        <div class="container">
-                            <div class="row" id="change-privacy">
-                                <div class="col-4">
-                                </div>
-                                <div class="col-8">
-                                    <p>
-                                        Informasi Pribadi
-                                        <br>
-                                        Ini tidak akan menjadi bagian dari profil publik anda
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Alamat Surel -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-4">
-                                    <h4>Alamat Surel</h4>
-                                </div>
-                                <div class="col-8">
-                                    <input type="email" class="form-change-privacy" name="" id="input-emailAddress"
-                                        placeholder=" <%= email %> ">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Nomer telfon -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-4">
-                                    <h4>Nomor Telepon</h4>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-change-privacy" name="" id="input-telephone"
-                                        placeholder="<%= phoneNumber %> ">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Gender -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-4">
-                                    <h4>Gender</h4>
-                                </div>
-                                <div class="col-8">
-                                    <% if (gender == 'Laki-Laki') { %>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios"
-                                            id="exampleRadios1" value="Laki-laki" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Laki-laki
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios"
-                                            id="exampleRadios2" value="Perempuan">
-                                        <label class="form-check-label" for="exampleRadios2">
-                                            Perempuan
-                                        </label>
-                                    </div>
-                                    <% } else {%>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios"
-                                            id="exampleRadios1" value="Laki-laki">
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Laki-laki
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios"
-                                            id="exampleRadios2" value="Perempuan" checked>
-                                        <label class="form-check-label" for="exampleRadios2">
-                                            Perempuan
-                                        </label>
-                                    </div>
-                                    <% } %>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- tombol berlangganan -->
+                    <a href="/berlangganan"></a><button id="berlangganan">berlangganan</button>
                 </div>
 
-                <script src="views/assets/js/editProfile/disableButton.js"></script>
-                <!-- btn-simpan -->
-                <div class="col-2">
-                    <button type="submit" class="btn-simpan" id="btnSimpanProfil" value="Submit Edit"
-                        disabled>Simpan</button>
-                </div>
-                </form>
+                <!-- RIWAYAT PERTANYAAN DAN FORUM -->
+    <!-- Isi Beranda -->
+    <div class="col-lg-8">
+        <div class="banner-status">
+            <div class="row">
+            <div class="col-lg-2">
+                <%= totalpertanyaan.count %> Pertanyaan 
+            </div>
+            <div class="col-lg-2">
+                0 Disimpan
+            </div>
+            <div class="col-lg-5">
+                <a href="#popup1" class="btn btn-add-status">Tambah</a>
+                  <div id="popup1" class="popup">
+                     <img class="img-question" src="./views/assets/images/question.svg" alt="" />
+                     <div class="popup-judul">Apa yang ingin kamu Tambahkan? </div>
+                     <a class="popup-pilihan" href="/question">Pertanyaan</a>
+                  </div>
+                  <a href="#" class="close-popup"></a>
             </div>
         </div>
+        </div>
+        <div class="isi-beranda">
+            <% for(var i=0; i<questions.length; i++) {%> 
+           <div class="row">
+              <!-- Foto Profil Isi -->
+              <div class="col-lg-1">
+                 <img class="img-beranda" src="./views/assets/images/Ava user.svg" alt="" />
+              </div>
+              <div class="col-lg-10">
+              <!-- Setting -->
+                 <!-- Keterangan Profile -->
+                 <div class=profile-bar>
+                    <div class="profile-nama"> <%= questions[i].User.username %>  </div>
+                    <span class="profile-jenis">Pertanyaan</span>
+                    <div class="profile-jurusan"> <%= questions[i].User.bio %> </div>
+                 </div>
+              </div>
+           </div>
+        
+           <!-- Vote -->
+           <div class="row">
+              <div class="col-lg-1">
+                 <div class ="vote">
+                    <div class="like">
+                       <img src="./views/assets/images/arrow-up.png" width="28px">
+                       <!-- <i class="fas fa-caret-up fa-3x like" aria-hidden="true"></i> -->
+                    </div>
+                    <div class="count-vote">
+                       x
+                    </div>
+                    <div class="dislike">
+                       <!-- <i class="fas fa-caret-down fa-3x like" aria-hidden="true"></i> -->
+                       <img src="./views/assets/images/arrow-down.png"  width="28px">
+                    </div>
+                 </div>
+              </div>
+              <!-- isi pertanyaan/Forum -->
+              <div class="col-sm-8 col-lg-10">
+                 <div class="konten">
+                     <a href="/questions/<%= questions[i].id %>"><%= questions[i].title %></a> 
+                 </div>
+                 <!-- Preview Isi max 3 kalimat -->
+                 <div class="preview-isi">
+                     <%- questions[i].question %> 
+                 </div>
+                 <!-- Kategori Pertanyaan/forum -->
+                 <ul class="tag-kategori">
+                    <li class="kategori"> <%= categories[0].category %>  </li>
+                    <li class="kategori"> <%= departements[0].departement %>  </li>
+                    <li class="kategori"> <%= courses[0].course %>  </li>
+                 </ul>
+                 <!-- Tombol Jawab -->
+                 <a href="/questions/<%= questions[i].id %>"><button class="btn-answer">
+                 Jawab
+                 </button></a>
+                 <div class="konten-time">
+                     <%= moment(questions[i].createdAt).fromNow() %> 
+                 </div>
+              </div>
+           </div> 
+        </div>
+        <% } %>
+     </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </body>
 
 </html>

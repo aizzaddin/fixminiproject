@@ -21,61 +21,7 @@
    <body>
 
       <!-- Navbar -->
-      <section class="navigasi">
-         <nav class="navbar navbar-expand-lg navbar-beranda">
-            <div class="container">
-               <a class="navbar-brand" href="/dashboard">
-               <img src="views/assets/images/logo.svg" alt="" width="140" >
-               </a>
-               <!-- navbar kanan -->
-               <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-                  <ul class="navbar-nav navbar-right ml-auto flex-nowrap">
-                     <li class="nav-item">
-                        <div class="search">
-                           <form id="your_form" onclick="yourFunction()">
-                              <input type="text" class="form-control" placeholder="Cari Jawaban dari Pertanyaanmu"
-                                 name="title">
-                              <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
-                           </form>
-                        </div>
-                        <script>
-                           function yourFunction() {
-                              var action_src = "/cari?" + document.getElementsByName("title")[
-                                 0].value;
-                              var your_form = document.getElementById('your_form');
-                              your_form.action = action_src;
-                           }
-                        </script>
-                     </li>
-                     <li class="nav-item">
-                        <div class="circle-button"><i class="far fa-bell"></i></div>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                           class="img-circle">
-                        </a>
-                        <div class="dropdown-menu" >
-                           <div class="profile-wrap">
-                              <a class="dropdown-pict" id="coba" href="#"> <img
-                                 src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                                 class="img-circle-big"> </a>
-                                 <br>
-                                 <div class="setting-title"><%= nama.username %></div>                               
-                           </div>
-                           <div class="menu-profile">
-                              <a class="dropdown-item" href="/profile"> View Info Profile</a>
-                              <a class="dropdown-item" href="#">Berlangganan</a>
-                              <a class="dropdown-item" href="/logout">Logout</a>
-                           </div>
-                        </div>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </nav>
-      </section>
+      <%- include('./navbarafterlogin') %> 
      
       <section class= "isi">
          <div class="container">
@@ -105,11 +51,11 @@
                               <div class = "filter-box">
                                  <h6>Program Studi</h6>
                                  <div class="program-dropdown">
-                                    <select name="program" class="form-control" id="form-program" onfocus='this.size=5;'
+                                    <select name="program" class="form-control" id="form-program" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" onfocus='this.size=5;'
                                     onblur='this.size=1;' onchange='this.size=10; this.blur();'>
                                     <option class="pilih-program" value="" selected>--Pilih Departemen--</option>
                                     <% for(var i=0; i<departements.length; i++) {%>
-                                    <option class="pilih-matkul" value="<%= departements[i].id %>">
+                                    <option class="pilih-matkul" value="filter?<%= departements[i].departement %>">
                                        <%= departements[i].departement %> </option>
                                     <% } %>
                                     </select>
@@ -219,7 +165,7 @@
             <div class="col-sm-2 col-lg-2">
                <a href="#popup1" class="btn btn-add">Tambah</a>
                <div id="popup1" class="popup">
-                  <img class="img-question" src="views/assets/images/question.svg" alt="" />
+                  <img class="img-question" src="./views/assets/images/question.svg" alt="" />
                   <div class="popup-judul">Apa yang ingin kamu Tambahkan? </div>
                   <a class="popup-pilihan" href="/questions">Pertanyaan</a>
                </div>
