@@ -23,6 +23,7 @@
       async="async"></script>
    <link rel="stylesheet" href="../views/assets/css/jawaban.css">
 
+   <link rel="icon" href="../views/assets/images/website.png" />
    <title>comment Jawaban</title>
 </head>
 
@@ -167,7 +168,7 @@
             <div class="row">
                <div id="jawaban">
                   <p>
-                     <%= answers[i].answers %>
+                     <%- answers[i].answer %>
                   </p>
                </div>
             </div>
@@ -219,13 +220,13 @@
                   </div>
                   <div class="col-10" style="padding-left: 50px;">
                      <!-- USERNAME -->
-                     <div class="profile-nama">Nama</div>
-                     <div class="profile-jurusan">S1 Sastra Indonesia</div>
+                     <div class="profile-nama"><%= nama.username %> </div>
+                     <div class="profile-jurusan"><%= nama.bio %> </div>
                   </div>
                </div>
-
+               
                <div class="row">
-                  <a href="commentPertanyaan">
+                  <a href="/answer/<%= questions.id %>">
                      <div class="input-group mb-3">
                         <input type="text" class="referensi" placeholder="Jawab">
                         <span class="input-group-text" id="basic-addons1"><img src="../views/assets/images/comment.png"

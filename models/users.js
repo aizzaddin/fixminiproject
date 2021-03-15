@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         password2: DataTypes.STRING,
         bio: DataTypes.TEXT,
         site: DataTypes.STRING,
-        phoneNumber: DataTypes.INTEGER,
+        phoneNumber: DataTypes.STRING,
         gender: DataTypes.STRING,
         role: DataTypes.ENUM('user', 'admin')
     }, {

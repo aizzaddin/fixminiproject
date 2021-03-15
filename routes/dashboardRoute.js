@@ -6,6 +6,6 @@ const dashboardController = require("../controller/dashboardController");
 
 // set endpoint url
 router.get("/dashboard", restrict, dashboardController.index)
-router.get("/dashboard/:id", restrict, dashboardController.show)
+// router.get("/dashboard/:id", restrict, dashboardController.show)
 
 module.exports = router

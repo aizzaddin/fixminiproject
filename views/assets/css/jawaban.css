@@ -1,5 +1,5 @@
 .commentPertanyaan {
-    margin: 20px 200px 30px 200px;
+    margin: 20px 250px 30px 250px;
 }
 
 textarea {
@@ -40,7 +40,7 @@ textarea {
     padding-left: 20px;
     border-radius: 15px;
     height: 38px;
-    width: 1000px;
+    width: 900px;
     border: 1px solid black;
     border-right: transparent;
 }

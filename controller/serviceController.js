@@ -1,11 +1,17 @@
-const { Services } = require("../models")
+const { Services, Users } = require("../models")
 
 module.exports = {
-  index: (req, res) => {
-    Services.findAll()
-    .then(result => {
-      res.render('berlangganan') 
+  index: async (req, res) => {
+    const id = req.user.id
+    const nama = await Users.findOne({
+      where: { id : id}
     })
+    const services = await Services.findAll()
+    res.render('berlangganan', {id, nama, services})
+  //   Services.findAll()
+  //   .then(result => {
+  //     res.render('berlangganan', { id: req.user.id }) 
+  //   })
   },
   show: (req, res) => {
     Services.findOne({

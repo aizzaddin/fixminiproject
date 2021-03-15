@@ -8,7 +8,12 @@
 
 /* Navbar */
 
-
+#kategoribaru {
+  background-color: #BCBCBC;
+  border-radius: 10px;
+  padding: 5px ;
+  margin: 0px 5px 0px 5px ;
+}
 
 .nav-item {
   font-family: Roboto;
@@ -663,7 +668,7 @@ a {
   font-size: 14px;
   line-height: 24px;
   float: right;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .konten-time {
