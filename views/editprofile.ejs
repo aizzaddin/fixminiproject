@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../views/assets/css/editProfil.css" />
+
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../views/assets/js/changePassword/eyeslash.js"></script>
+
+    <link rel="icon" href="../../views/assets/images/website.png" />
+    <title>Edit Profile</title>
+</head>
+
+<body>
+    <section class="navigasi">
+        <nav class="navbar navbar-expand-lg navbar-beranda">
+                <div class="container">
+                    <a class="navbar-brand" href="/dashboard">
+                        <img src="../views/assets/images/logo.svg" alt="" width="140" >
+                    </a>
+                    <!-- navbar kanan -->
+                    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                        <ul class="navbar-nav navbar-right ml-auto flex-nowrap">
+                            <li class="nav-item">
+                            <div class="search"> <input type="text" class="form-control" placeholder="Cari" style="margin-top:10px;"> <button class="btn-search "><i class="fa fa-search"></i></button> </div>
+                            </li>
+                            <li class="nav-item">
+                            <div class="circle-button"><i class="far fa-bell"></i></div>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="./../views/assets/images/Ava user.svg" class="img-circle">
+                            </a>
+                            <div class="dropdown-menu" >
+                                <div class="profile-wrap">
+                                    <a class="dropdown-pict" id="coba" href="#">  <img src="./../views/assets/images/Ava user.svg" class="img-circle-big"> </a>
+                                    <div class="setting-title"><%= users.username %> </div>
+                                </div>
+                                <div class="menu-profile">
+                                    <a class="dropdown-item" href="/profile"> View Info Profile</a>
+                                    <a class="dropdown-item" href="/berlangganan">Berlangganan</a>
+                                    <a class="dropdown-item" href="/logout">Logout</a>
+                                </div>
+                            </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>  
+        </nav>
+    </section>
+    <div id="contentEditProfile">
+        <div class="container">
+
+            <div class="row">
+                <!-- "setting-profile-user" -->
+                <div class="col-3">
+                    <div class="container">
+                        <h4 id="setelan">Setelan</h4>
+                        <div class="border-pemisah"></div>
+                        <div class="teks-setelan">
+                            <a href="/profile/edit">
+                                <h6>Edit Profil</h6>
+                            </a>
+                            <a href="/profile/password">
+                                <h6>Ubah Kata Sandi</h6>
+                            </a>
+                            <a href="/profile/berlangganan">
+                                <h6>Berlangganan</h6>
+                            </a>
+                            <h6>Notifikasi</h6>
+                            <h6>QnA</h6>
+                            <h6>Pelayanan Pelanggan</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- profile-edit -->
+                <div class="col-7">
+                    <!-- foto -->
+                    <div class="container">
+                        <div class="row" id="change-photo">
+                            <div class="col-4">
+                                <img src="../../views/assets/images/Ava user.svg" alt="..." class="img-profile">
+                            </div>
+                            <div class="col-8" id="namaNprodi">
+                                
+                                <h3 id="tampilan-username"><%= users.username %> </h3>
+                                <h5>Ubah foto profil</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- nama Tampilan -->
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col-4">
+                                <h4>Nama Tampilan</h4>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-change-bio" name="name" id="displayName"
+                                    placeholder="<%= users.name %>">
+                                <p>
+                                    Bantu orang menemukan akun Anda dengan menggunakan nama yang Anda
+                                    kenal: baik nama lengkap maupun nama panggilan Anda.
+                                    <br>
+                                    <br>
+                                    Anda hanya dapat mengubah nama Anda dua kali dalam 14 hari.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="/profile/update" method="POST">
+                        <!-- Nama pengguna -->
+                        <div class="container">
+                            <div class="row ">
+                                <div class="col-4">
+                                    <h4>Nama Pengguna</h4>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-change-bio" name="username" id="userName"
+                                        placeholder="<%= users.username %> ">
+                                    <p>
+                                        Anda dapat mengubah kembali nama pengguna Anda setelah 14 hari dari perubahan
+                                        terakhir.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bio -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h4>Bio</h4>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-change-bio" name="bio" id="input-bio"
+                                        placeholder="<%= users.bio %> ">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Situs -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h4>Situs</h4>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-change-bio" name="site" id="input-situs"
+                                        placeholder="<%= users.site %> ">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <!-- info -->
+                        <div class="container">
+                            <div class="row" id="change-privacy">
+                                <div class="col-4">
+                                </div>
+                                <div class="col-8">
+                                    <p>
+                                        Informasi Pribadi
+                                        <br>
+                                        Ini tidak akan menjadi bagian dari profil publik anda
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alamat Surel -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h4>Alamat Surel</h4>
+                                </div>
+                                <div class="col-8">
+                                    <input type="email" class="form-change-privacy" name="email" id="input-emailAddress"
+                                        placeholder=" <%= users.email %> ">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nomer telfon -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h4>Nomor Telepon</h4>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-change-privacy" name="phoneNumber" id="input-telephone"
+                                        placeholder="<%= users.phoneNumber %> ">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <h4>Gender</h4>
+                                </div>
+                                <div class="col-8">
+                                    <% if (users.gender == 'Laki-Laki') { %>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                            id="exampleRadios1" value="Laki-laki" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Laki-laki
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                            id="exampleRadios2" value="Perempuan">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Perempuan
+                                        </label>
+                                    </div>
+                                    <% } else {%>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                            id="exampleRadios1" value="Laki-laki">
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Laki-laki
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender"
+                                            id="exampleRadios2" value="Perempuan" checked>
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Perempuan
+                                        </label>
+                                    </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <script src="../../views/assets/js/editProfile/disableButton.js"></script>
+                <!-- btn-simpan -->
+                <div class="col-2">
+                    <button type="submit" class="btn-simpan" id="btnSimpanProfil" value="Submit Edit">Simpan</button>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

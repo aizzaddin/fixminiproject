@@ -48,11 +48,11 @@ module.exports = {
             })
             .then(() => {
                 res.status(201)
-                console.log(category_id, departement_id, course_id),
+                // console.log(category_id, departement_id, course_id),
                     res.redirect('/dashboard')
             })
             .catch(() => {
-                console.log(category_id, departement_id, course_id);
+                // console.log(category_id, departement_id, course_id);
                 res.redirect('/questions?message=' + encodeURIComponent('input_salah'))
             })
     },
@@ -77,8 +77,13 @@ module.exports = {
         const answers = await Answers.findAll({
             attribute: ['answer']
         })
+        const nama = await Users.findOne({
+            where: {
+                id: req.user.id
+            }
+        })
         // console.log(users);
-        res.render('questions', {questions, moment, users, categories, departements, courses, answers})
+        res.render('questions', {questions, moment, users, categories, departements, courses, answers, nama})
     },
     update: (req, res) => {
         const {

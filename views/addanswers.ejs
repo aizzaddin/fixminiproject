@@ -12,19 +12,21 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
+
+   <!-- Froala -->
+   <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/css/froala_editor.pkgd.min.css" rel="stylesheet"
+      type="text/css" />
+
    <!-- Font -->
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="../views/assets/css/beranda.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="../views/assets/js/jawab.js"></script>
-   <script type="text/javascript"
-      src="https://platform-api.sharethis.com/js/sharethis.js#property=604fa23739329f00123ae96c&product=inline-share-buttons"
-      async="async"></script>
+
    <link rel="stylesheet" href="../views/assets/css/jawaban.css">
 
    <link rel="icon" href="../views/assets/images/website.png" />
-   <title>comment Jawaban</title>
+   <title>Tambah Jawaban</title>
 </head>
 
 <body>
@@ -33,15 +35,16 @@
    <section class="navigasi">
       <nav class="navbar navbar-expand-lg navbar-beranda">
          <div class="container">
-            <a class="navbar-brand" href="../dashboard">
-               <img src="../views/assets/images/banner/logo.svg" alt="" width="140">
+            <a class="navbar-brand" href="/">
+               <img src="../views/assets/images/logo.svg" alt="" width="140">
             </a>
             <!-- navbar kanan -->
             <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
                <ul class="navbar-nav navbar-right ml-auto flex-nowrap">
                   <li class="nav-item">
-                     <div class="search"> <input type="text" class="form-control" placeholder="Cari"> <button
-                           class="btn-search "><i class="fa fa-search"></i></button> </div>
+                     <div class="search"> <input type="text" class="form-control" placeholder="Cari"
+                           style="margin-top:10px;"> <button class="btn-search "><i class="fa fa-search"></i></button>
+                     </div>
                   </li>
                   <li class="nav-item">
                      <div class="circle-button"><i class="far fa-bell"></i></div>
@@ -57,12 +60,12 @@
                            <a class="dropdown-pict" id="coba" href="#"> <img
                                  src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
                                  class="img-circle-big"> </a>
-                           <div class="setting-title">Nama <br> asasass </div>
+                           <div class="setting-title"><%= nama.username %> </div>
                         </div>
                         <div class="menu-profile">
-                           <a class="dropdown-item" href="../profile"> View Info Profile</a>
-                           <a class="dropdown-item" href="../profile/berlangganan">Berlangganan</a>
-                           <a class="dropdown-item" href="../logout">Logout</a>
+                           <a class="dropdown-item" href="/profile"> View Info Profile</a>
+                           <a class="dropdown-item" href="/berlangganan">Berlangganan</a>
+                           <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
                      </div>
                   </li>
@@ -72,9 +75,11 @@
       </nav>
    </section>
 
-
+   <!-- MAIN Question -->
    <section class="pertanyaan">
       <div class="container" style="padding-top: 25px;">
+         <p id="pesangagal" style="padding-top: 10px; padding-bottom: 10px; text-align: center;">Harap perhatikan
+            data yang anda masukkan. Kategori, Program Studi dan Mata Kuliah harus sesuai.</p>
          <!-- Pertanyaan -->
          <div class="row">
             <!-- Foto Profil Isi -->
@@ -86,20 +91,20 @@
             <div class="col-lg-10">
                <!-- Setting -->
                <!-- <a class="setting" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img src="../views/assets/images/options.svg" class="img-setting" width="24px">
-               </a>
-                  <div class="dropdown-menu" id="menu-setting">
-                     <a class="dropdown-setting" href="#"> <i class="far fa-share-square" ></i> Bagikan</a>
-                     <a class="dropdown-setting" href="#"><i class="far fa-save"></i> Simpan</a>
-                     <a class="dropdown-setting" href="#"><i class="far fa-bell"></i> Beritahu Perubahan</a>
-                     <a class="dropdown-setting" href="#"><i class="far fa-frown"></i> Tidak tertarik</a>
-                     <a class="dropdown-setting" href="#"><i class="far fa-flag"></i> Laporkan</a>
-                  </div> -->
+                            <img src="../views/assets/images/options.svg" class="img-setting" width="24px">
+                        </a>
+                        <div class="dropdown-menu" id="menu-setting">
+                            <a class="dropdown-setting" href="#"> <i class="far fa-share-square"></i> Bagikan</a>
+                            <a class="dropdown-setting" href="#"><i class="far fa-save"></i> Simpan</a>
+                            <a class="dropdown-setting" href="#"><i class="far fa-bell"></i> Beritahu Perubahan</a>
+                            <a class="dropdown-setting" href="#"><i class="far fa-frown"></i> Tidak tertarik</a>
+                            <a class="dropdown-setting" href="#"><i class="far fa-flag"></i> Laporkan</a>
+                        </div> -->
                <!-- Keterangan Profile -->
                <div class=profile-bar>
-                  <div class="profile-nama"> <%= users[0].username %> </div>
+                  <div class="profile-nama"><%= users[0].username %> </div>
                   <span class="profile-jenis">Pertanyaan</span>
-                  <div class="profile-jurusan"> <%= users[0].bio %> </div>
+                  <div class="profile-jurusan"><%= users[0].bio %> </div>
                </div>
             </div>
          </div>
@@ -124,21 +129,15 @@
                   <%= questions.title %>
                </div>
                <!-- Preview Isi max 3 kalimat -->
-               <div>
+               <div class="preview-isi">
                   <%- questions.question %>
                </div>
                <!-- Kategori Pertanyaan/forum -->
                <ul class="tag-kategori">
-                  <li class="kategori"> <%= categories[0].category %> </li>
-                  <li class="kategori"> <%= departements[0].departement %> </li>
-                  <li class="kategori"> <%= courses[0].course %> </li>
+                  <li class="kategori"><%= categories[0].category %></li>
+                  <li class="kategori"><%= departements[0].departement %></li>
+                  <li class="kategori"><%= courses[0].course %></li>
                </ul>
-               <!-- button jawab -->
-               <a href="commentPertanyaan.html">
-                  <button class="btn-answer" id="tombolJawab" value="show">
-                     Jawab
-                  </button>
-               </a>
                <div class="konten-time">
                   <%= moment(questions.createdAt).fromNow() %>
                </div>
@@ -146,12 +145,13 @@
          </div>
       </div>
    </section>
-         
-   <!-- Komentar pertanyaan -->
-   <div>
+
+   <!-- Text Area untuk Jawab Pertanyaan  -->
+   <div id="jawabPertanyaanIni">
+      <!-- form -->
+      <!-- <form action="#" action=""> -->
       <div class="commentPertanyaan">
          <div class="container">
-            <% for(var i=0; i<answers.length; i++) {%>
             <div class="row">
                <div class="col-1">
                   <img class="img-beranda"
@@ -160,87 +160,55 @@
                </div>
                <div class="col-10" style="padding-left: 50px;">
                   <!-- USERNAME -->
-                  <div class="profile-nama"><%= users[i].username  %> </div>
-                  <div class="profile-jurusan"><%= users[i].bio %> </div>
+                  <div class="profile-nama"><%= nama.username %> </div>
+                  <div class="profile-jurusan"><%= nama.bio %> </div>
                </div>
             </div>
-
-            <div class="row">
-               <div id="jawaban">
-                  <p>
-                     <%- answers[i].answer %>
-                  </p>
-               </div>
-            </div>
-
-            <div class="row" style=" padding-bottom: 20px;border-bottom: 1px solid black;">
-               <!-- <div style="margin-left: 5px;">
-                  <h5>Referensi</h5>
-                  <p>
-                     1. http://andryisme.blogspot.com/2018/01/sejarah-perkembangan-dan-fokus-kajian.html
-                  </p>
-               </div> -->
-               <div>
-                  <span>
-                     <span><button><img src="../views/assets/images/up.svg" alt=""></button></span>
-                     <span><button><img src="../views/assets/images/down.svg" alt=""></button></span>
-                     <span>0 </span><span>suara</span>
-                     <span><button class="profile-nama" style="margin-left: 20px;" id="Reply2">Reply</button></span>
-                  </span>
-                  <!-- <span style="margin-left: 280px;">
-                        <span><button><img src="../views/assets/images/share.svg" alt=""></button></span>
-                        <span><button><img src="../views/assets/images/report.svg" alt=""></button></span>
-                     </span> -->
+            <form action="/answer/<%= questions.id %>" method="POST">
+               <div class="row">
+                  <div style="padding-top: 25px;">
+                     <textarea id="edit" name="answer" aria-describedby="pertanyaan"></textarea>
+                  </div>
+                  <div id="alert">* wajib</div>
                </div>
 
-               <!-- <div id="inputReply2">
-                     <div class="input-group mb-3">
-                        <input type="text" class="iniReply" placeholder="Jawab">
-                        <span class="input-group-text" id="basic-addons1"><img src="../views/assets/images/comment.png" alt=""></span>
-                     </div>
-                  </div> -->
-
-            </div>
-            <% } %> 
+               <div class="row">
+                  <div style="margin-top: 20px; margin-left: 5px;">
+                     <h5>Referensi</h5>
+                     <h6>Tambahkan referensi agar orang lain yakin dengan jawabanmu</h6>
+                  </div>
+                  <input type="text" id="referensi" name="referensi" placeholder="Tulis referensi kamu disini"
+                     style="margin-bottom: 0px;">
+                  <div id="alert">* wajib</div>
+               </div>
          </div>
+         <button type="submit" id="kirimComment">Kirim</button>
       </div>
-   </div>
-
-
-   <!-- tombol comment Jawaban -->
-   <div id="jawabPertanyaanIni">
-      <form action="#" action="">
-         <div class="commentPertanyaan">
-            <div class="container">
-               <div class="row">
-                  <div class="col-1">
-                     <img class="img-beranda"
-                        src="http://pre14.deviantart.net/1846/th/pre/f/2012/322/c/0/face_illusion_by_west_ninja-d5lc6w2.jpg"
-                        alt="" />
-                  </div>
-                  <div class="col-10" style="padding-left: 50px;">
-                     <!-- USERNAME -->
-                     <div class="profile-nama"><%= nama.username %> </div>
-                     <div class="profile-jurusan"><%= nama.bio %> </div>
-                  </div>
-               </div>
-               
-               <div class="row">
-                  <a href="/answer/<%= questions.id %>">
-                     <div class="input-group mb-3">
-                        <input type="text" class="referensi" placeholder="Jawab">
-                        <span class="input-group-text" id="basic-addons1"><img src="../views/assets/images/comment.png"
-                              alt=""></span>
-                     </div>
-                  </a>
-               </div>
-            </div>
-         </div>
       </form>
    </div>
-
-   <div id="backToTop"></div>
-
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/js/froala_editor.pkgd.min.js">
+   </script>
+   <script>
+      new FroalaEditor('#edit', {
+         // Set the file upload URL.
+         fileUploadURL: '../file_upload',
+         fileUploadParams: {
+            id: 'my_editor'
+         },
+         imageUploadURL: '../image_upload',
+         imageUploadParams: {
+            id: 'my_editor'
+         }
+      })
+   </script>
+   <script>
+      $('#pesangagal').hide();
+      const urlParam = new URLSearchParams(window.location.search);
+      const mParam = urlParam.get('message');
+      if (mParam == "input_salah") {
+         $('#pesangagal').show();
+      }
+   </script>
    <script src="../views/assets/js/displayJawab.js"></script>
    <!-- Optional JavaScript -->
    <!-- Popper.js first, then Bootstrap JS -->

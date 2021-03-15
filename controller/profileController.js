@@ -6,10 +6,11 @@ const {
     Courses,
 } = require("../models")
 const bcrypt = require('bcrypt')
+const moment = require('moment')
 
 module.exports = {
     index: async (req, res) => {
-        const questions = await Questions.findOne({
+        const questions = await Questions.findAll({
             where: {user_id : req.user.id },
             include: [{
                 model: Users
@@ -24,32 +25,21 @@ module.exports = {
         const courses = await Courses.findAll({
             attribute: ['course']
         })
+        const totalpertanyaan = await Questions.findAndCountAll({
+            where: {user_id : req.user.id }
+        })
+        const nama = await Users.findOne({
+            where: {id: req.user.id}
+          })
+        // console.log(questions);
+        res.render('profile', {questions, categories, departements, courses, moment, totalpertanyaan, nama})
     },
-    show: (req, res) => {
-        Users.findOne({
-                where: {
-                    id: req.user.id
-                }
-            })
-            .then(result => {
-                if (result !== null) {
-                    res.render('profile', {
-                        name: result.name,
-                        username: result.username,
-                        email: result.email,
-                        bio: result.bio,
-                        site: result.site,
-                        phoneNumber: result.phoneNumber,
-                        gender: result.gender
-                    })
-                } else {
-                    res.status(200).json({
-                        status: "success",
-                        message: "Data not found!",
-                        data: result
-                    })
-                }
-            })
+    indexupdate: async (req, res) => {
+        const users = await Users.findOne({
+            where: { id: req.user.id }
+        })
+        console.log(users);
+        res.render('editprofile', { users: users })
     },
     update: (req, res) => {
         const {

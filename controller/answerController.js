@@ -1,30 +1,60 @@
-const { Answers } = require("../models")
+const {
+    Questions,
+    Users,
+    Categories,
+    Departements,
+    Courses,
+    Answers
+} = require("../models")
 const moment = require("moment")
-const {nanoid} = require('nanoid')
+const {
+    nanoid
+} = require('nanoid')
 
 module.exports = {
-    index: (req, res) => {
-        Answers.findAll()
-            .then(result => {
-                const newArray = result.map(data => ({
-                id: data.id, 
-                answer: data.answer,
-                reference: data.reference,
-                user_id: data.user_id,
-                question_id: data.question_id,
-                createdAt: moment(data.createdAt).fromNow(),
-                updatedAt: moment(data.updateAt).fromNow()
-                }))
-
-                res.status(200).json({
-                    status: "success",
-                    data: newArray
-                })
-            })
+    index: async (req, res) => {
+        const questions = await Questions.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        const users = await Users.findAll({
+            attribute: ['username']
+        })
+        const categories = await Categories.findAll({
+            attribute: ['category']
+        })
+        const departements = await Departements.findAll({
+            attribute: ['departement']
+        })
+        const courses = await Courses.findAll({
+            attribute: ['course']
+        })
+        const answers = await Answers.findAll({
+            attribute: ['answer']
+        })
+        const nama = await Users.findOne({
+            where: {
+                id: req.user.id
+            }
+        })
+        // console.log(users);
+        res.render('addanswers', {
+            questions,
+            moment,
+            users,
+            categories,
+            departements,
+            courses,
+            answers,
+            nama
+        })
     },
     show: (req, res) => {
         Answers.findOne({
-                where: { id: Number(req.params.id) }
+                where: {
+                    id: Number(req.params.id)
+                }
             })
             .then(result => {
                 if (result !== null) {
@@ -43,7 +73,12 @@ module.exports = {
             })
     },
     create: (req, res) => {
-        const { answer, reference, user_id, question_id } = req.body
+        const {
+            answer,
+            reference,
+        } = req.body
+        const question_id = req.params.id
+        const user_id = req.user.id
         Answers.create({
                 id: nanoid(),
                 answer: answer,
@@ -52,14 +87,20 @@ module.exports = {
                 question_id: question_id
             })
             .then(() => {
-                res.status(201).json({
-                    status: "success",
-                    message: "Create Answer success!"
-                })
+                res.redirect('/questions/' + question_id)
+            })
+            .catch(() => {
+                res.redirect('/answer/'+ question_id +'?message=' + encodeURIComponent('input_salah'))
             })
     },
     update: (req, res) => {
-        const { id, answer, reference, user_id, question_id } = req.body
+        const {
+            id,
+            answer,
+            reference,
+            user_id,
+            question_id
+        } = req.body
         Answers.update({
                 id: id,
                 answer: answer,
@@ -67,7 +108,9 @@ module.exports = {
                 user_id: user_id,
                 question_id: question_id
             }, {
-                where: { id: Number(req.params.id) }
+                where: {
+                    id: Number(req.params.id)
+                }
             })
             .then(() => {
                 res.status(201).json({
@@ -78,7 +121,9 @@ module.exports = {
     },
     delete: (req, res) => {
         Answers.destroy({
-                where: { id: Number(req.params.id) }
+                where: {
+                    id: Number(req.params.id)
+                }
             })
             .then(() => {
                 res.status(200).json({
