@@ -1,16 +1,37 @@
-const { Questions, Users } = require("../models")
+const { Questions, Users, Categories, Departements, Courses } = require("../models")
+const moment = require('moment')
 
 module.exports = {
-  index: (req, res) => {
-    Questions.findAll({
+  index: async (req, res) => {
+    const questions = await Questions.findAll({
       include: [{
-        model: Users
-      }]
+          model: Users
+        }]
     })
-    .then(result => {
-      res.status(200)
-      res.render('beranda', { result: result })
+    const categories = await Categories.findAll({
+        attribute : ['category']
     })
+    const departements = await Departements.findAll({
+      attribute : ['departement']
+    })
+    const courses = await Courses.findAll({
+      attribute : ['course']
+    })
+    const nama = await Users.findOne({
+      where: {id: req.user.id}
+    })
+    // console.log(nama);
+    res.render('dashboard', { questions, moment, categories, departements, courses, nama})
+    // Questions.findAll({
+    //   include: [{
+    //     model: Users
+    //   }]
+    // })
+    // // const category = Categories
+    // .then(result => {
+    //   res.status(200)
+    //   res.render('beranda', { result: result })
+    // })
   },
   show: (req, res) => {
     Questions.findOne({

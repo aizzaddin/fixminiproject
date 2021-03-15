@@ -2,6 +2,7 @@ const { Users } = require('../models')
 const bcrypt = require('bcrypt')
 const { nanoid } = require('nanoid')
 const BaseController = require('./baseController')
+const jwt = require('jsonwebtoken')
 
 class UserController extends BaseController {
     constructor() {
@@ -28,10 +29,14 @@ class UserController extends BaseController {
         const user = await Users.findOne({
             where: { username }
         })
-        if (await bcrypt.compare(password, user.password)) {
-            return user.id
+        if (user == null){
+            return "wrong username or password"
         } else {
-            return "wrong password"
+            if (await bcrypt.compare(password, user.password)) {
+                return user.id
+            } else {
+                return "wrong username or password"
+            }
         }
     }
 }

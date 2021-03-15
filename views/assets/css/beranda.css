@@ -37,7 +37,7 @@ a{
     margin-bottom: 100px;
   }
   
-.search {
+  .search {
     position: relative;
 }
 
@@ -285,10 +285,10 @@ border: none;
   margin-left: 25px;
   margin-top: 16px;
 }
+
 .like,
 .dislike {
   cursor: pointer;
-  font-size: 24px;
 }
 
 .dislike:hover,
@@ -370,7 +370,6 @@ border: none;
 .setting {
   position: relative;
   display: inline-block;
-  float: right;
 }
 
 .btn-add{

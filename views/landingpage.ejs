@@ -29,7 +29,7 @@
     <section class="navigasi">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="landingPage.html">
                     <img src="views/assets/images/logo.svg" alt="" width="140">
                 </a>
                 <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
@@ -68,19 +68,6 @@
                             alt="" id="banner"> </div>
                 </div>
 
-                <!-- <div class="alert alert-success" role="alert" id="emaildidaftarkan">
-                    <p style="text-align: center;">Emailmu berhasil didaftarkan</p>
-                </div>
-
-                <script>
-                    $('#emaildidaftarkan').hide();
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const myParam = urlParams.get('berhasil');
-                    if(myParam == "berhasil_daftar") {
-                        $('#emaildidaftarkan').show();
-                    }
-                </script> -->
-
                 <!-- search -->
                 <div class="col-lg-6" style="padding-left: 100px;">
                     <h1>
@@ -92,21 +79,19 @@
                             perkuliahanmu!
                         </p>
                         <div>
-                            <div class="search">
-                                <form id="your_form" onclick="yourFunction()">
-                                    <input type="text" class="form-control"
-                                        placeholder="Cari Jawaban dari Pertanyaanmu" name="title">
-                                    <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
-                                </form>
-                            </div>
                             <script>
-                                function yourFunction() {
-                                    var action_src = "/cari?" + document.getElementsByName("title")[
-                                        0].value;
-                                    var your_form = document.getElementById('your_form');
-                                    your_form.action = action_src;
+                                function process() {
+                                    var url = "/search?title=" + document.getElementById("url").value;
+                                    location.href = url;
+                                    return false;
                                 }
                             </script>
+                            <div class="search">
+                            <form onSubmit="return process();">
+                                <input type="text" class="form-control" name="url" id="url" placeholder="Cari Jawaban dari Pertanyaanmu">
+                                <button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -302,11 +287,11 @@
                     </div>
                 </div>
                 <div class="col-7">
+                    <h1>Daftarkan e-mail kamu untuk mendapatkan info promo dari kami, GRATIS!</h1>
                     <form action="/subscription" method="POST">
-                        <h1>Daftarkan e-mail kamu untuk mendapatkan info promo dari kami, GRATIS!</h1>
-                        <input type="email" class="form-add-email" name="email" id="input-email"
+                        <input type="email" class="form-add-email" name="" id="input-email"
                             placeholder="Tulis email kamu disini!" style="border: transparent;">
-                        <button type="submit" class="btn-add-email">Kirim</button>
+                        <button type="button" class="btn-add-email">Kirim</button>
                     </form>
                 </div>
             </div>

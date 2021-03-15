@@ -42,15 +42,15 @@ app.get('/about', (req, res) => {
   res.render('about')
 })
 
-app.get('/:path', (req, res) => {
-  res.render(req.params.path, {}, (err, next) => {
-    if (err) {
-      res.render('404');
-    } else {
-      return next
-    }
-  });
-})
+// app.get('/:path', (req, res) => {
+//   res.render(req.params.path, {}, (err, next) => {
+//     if (err) {
+//       res.render('404');
+//     } else {
+//       return next
+//     }
+//   });
+// })
 
 const filesDir = path.join(path.dirname(require.main.filename), "uploads");
 if (!fs.existsSync(filesDir)) {

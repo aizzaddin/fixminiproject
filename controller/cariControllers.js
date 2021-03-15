@@ -51,18 +51,14 @@ module.exports = {
                 // }]
             })
             .then(result => {
-                if (!result[0]) {
+                if (!result) {
                     res.status(400).json({
                         success: false,
                         message: 'Data not found',
                         data: result
                     })
                 } else {
-                    res.status(200).json({
-                        success: true,
-                        message: 'Success',
-                        data: result
-                    })
+                    res.render('search', {result: result})
                 }
 
             })

@@ -5,8 +5,8 @@ const restrict = passport.authenticate('jwt', {session: false, failureRedirect: 
 const profileController = require("../controller/profileController");
 
 // set endpoint url
-//router.get("/editprofile", restrict, profileController.index)
-router.get("/profile", restrict, profileController.show)
+router.get("/profile", restrict, profileController.index)
+router.get("/profile/update", restrict, profileController.show)
 router.put("/profile/update", restrict, profileController.update)
 router.get("/profile/editpassword", restrict, profileController.getpassword)
 router.put("/profile/editpassword", restrict, profileController.updatepassword)

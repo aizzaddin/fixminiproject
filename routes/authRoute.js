@@ -8,10 +8,6 @@ app.get('/register', (req, res) => {
     res.render('register')
 })
 
-app.get('/register', (req, res) => { 
-    res.render('register')
-})
-
 app.post('/register', async (req, res) => {
     const { username, email, password, password2, role } = req.body
     const result = await user.register(username, email, password, password2 ,role)
@@ -22,17 +18,17 @@ app.get('/login', (req, res) => {
     res.render('login')
 })
 
-app.get('/login', (req, res) => { 
-    res.render('login')
-})
-
 app.post('/login', async (req, res) => {
     const { username, password } = req.body
     const result = await user.login(username, password)
-    const token = jwt.sign({ id : result }, process.env.JWT_SECRET)
-    console.log(token);
-    res.cookie('jwt', token)
-    res.redirect('/dashboard')
+    if (result == "wrong username or password") {
+        res.redirect('/login?message=' + encodeURIComponent('password_salah'))
+    } else {
+        const token = jwt.sign({ id : result }, process.env.JWT_SECRET)
+        console.log(token);
+        res.cookie('jwt', token)
+        res.redirect('/dashboard')
+    }
 })
 
 app.get('/logout', (req, res) => {
