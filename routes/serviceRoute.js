@@ -4,10 +4,10 @@ const router = require("express").Router()
 const serviceController = require("../controller/serviceController");
 
 // set endpoint url
-router.get("/service", serviceController.index)
-router.get("/service/:id", serviceController.show)
-router.post("/service", serviceController.create)
-router.put("/service/:id", serviceController.update)
-router.delete("/service/:id", serviceController.delete)
+router.get("/berlangganan", serviceController.index)
+router.get("/berlangganan/:id", serviceController.show)
+router.post("/berlangganan", serviceController.create)
+router.put("/berlangganan/:id", serviceController.update)
+router.delete("/berlangganan/:id", serviceController.delete)
 
 module.exports = router
