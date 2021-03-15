@@ -1,3 +1,7 @@
+.commentPertanyaan {
+    margin: 20px 200px 30px 200px;
+}
+
 textarea {
     width: 100%;
     height-max: 220px;
@@ -36,7 +40,7 @@ textarea {
     padding-left: 20px;
     border-radius: 15px;
     height: 38px;
-    width: 590px;
+    width: 1000px;
     border: 1px solid black;
     border-right: transparent;
 }

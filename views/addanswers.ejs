@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      <!-- Font Awesome-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
+      <!-- Font -->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="views/assets/css/beranda.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" href="views/assets/css/jawaban.css">
+     
+      <title>Tambah Jawaban</title>
+   </head>
+   <body>
+
+      <!-- Navbar -->
+      <section class="navigasi">
+         <nav class="navbar navbar-expand-lg navbar-beranda">
+            <div class="container">
+               <a class="navbar-brand" href="#">
+               <img src="views/assets/images/banner/logo.svg" alt="" width="140" >
+               </a>
+               <!-- navbar kanan -->
+               <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                  <ul class="navbar-nav navbar-right ml-auto flex-nowrap">
+                     <li class="nav-item">
+                        <div class="search"> <input type="text" class="form-control" placeholder="Cari"> <button class="btn-search "><i class="fa fa-search"></i></button> </div>
+                     </li>
+                     <li class="nav-item">
+                        <div class="circle-button"><i class="far fa-bell"></i></div>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" class="img-circle">
+                        </a>
+                        <div class="dropdown-menu" >
+                           <div class="profile-wrap">
+                              <a class="dropdown-pict" id="coba" href="#">  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" class="img-circle-big"> </a>
+                              <div class="setting-title">Nama <br> asasass </div>
+                           </div>
+                           <div class="menu-profile">
+                              <a class="dropdown-item" href="#"> View Info Profile</a>
+                              <a class="dropdown-item" href="#">Berlangganan</a>
+                              <a class="dropdown-item" href="#">Logout</a>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </section>
+      
+      <!-- MAIN Question -->
+      <section class= "pertanyaan">
+         <div class="container">
+            <!-- Pertanyaan -->
+            <div class="row">
+               <!-- Foto Profil Isi -->
+               <div class="col-lg-1">
+                  <img class="img-beranda" src="http://pre14.deviantart.net/1846/th/pre/f/2012/322/c/0/face_illusion_by_west_ninja-d5lc6w2.jpg" alt="" />
+               </div>
+               <div class="col-lg-10">
+               <!-- Setting -->
+               <a class="setting" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="views/assets/images/options.svg" class="img-setting" width="24px">
+               </a>
+                  <div class="dropdown-menu" id="menu-setting">
+                     <a class="dropdown-setting" href="#"> <i class="far fa-share-square" ></i> Bagikan</a>
+                     <a class="dropdown-setting" href="#"><i class="far fa-save"></i> Simpan</a>
+                     <a class="dropdown-setting" href="#"><i class="far fa-bell"></i> Beritahu Perubahan</a>
+                     <a class="dropdown-setting" href="#"><i class="far fa-frown"></i> Tidak tertarik</a>
+                     <a class="dropdown-setting" href="#"><i class="far fa-flag"></i> Laporkan</a>
+                  </div>
+                  <!-- Keterangan Profile -->
+                  <div class=profile-bar>
+                     <div class="profile-nama"> Namaaaaaaaaaaaa </div>
+                     <span class="profile-jenis">Forum</span>
+                     <div class="profile-jurusan"> S1 Teknik Arsitektur</div>
+                  </div>
+               </div>
+            </div>
+            <!-- Vote -->
+            <div class="row" >
+               <div class="col-lg-1">
+                  <div class ="vote">
+                     <div class="like">
+                        <button><img src="views/assets/images/up.svg" alt=""></button>
+                     </div>
+                     <div class="count-vote">
+                        45
+                     </div>
+                     <div class="dislike">
+                        <button><img src="views/assets/images/down.svg" alt=""></button>
+                     </div>
+                  </div>
+               </div>
+               <!-- isi pertanyaan/Forum -->
+               <div class="col-sm-8 col-lg-10" style=" padding-bottom: 20px;border-bottom: 1px solid black;">
+                  <div class="konten">
+                     Jika Tembok Besar Tiongkok dibuat pada zaman sekarang dengan kualitas yang baik, berapa biaya yang dibutuhkan untuk menyelesaikan proyek tersebut?
+                  </div>
+                  <!-- Preview Isi max 3 kalimat -->
+                  <div class="preview-isi">
+                     Ada satu sumber data dari brosur wisata Tembok Besar Tiongkok yang menyebutkan bahwa biaya pembangunan Tembok Besar atas dasar biaya saat ini yaitu sebesar $ 95 milyar ...
+                  </div>
+                  <!-- Kategori Pertanyaan/forum -->
+                  <ul class="tag-kategori">
+                     <li class="kategori"> Sejarahssss </li>
+                     <li class="kategori"> Teknik </li>
+                  </ul>
+                  <div class="konten-time">
+                     2 menit yang lalu
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      
+        <!-- Text Area untuk Jawab Pertanyaan  -->
+        <div id="jawabPertanyaanIni">
+            <!-- form -->
+            <form action="#" action="">
+                <div class="commentPertanyaan">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-1">
+                            <img class="img-beranda" src="http://pre14.deviantart.net/1846/th/pre/f/2012/322/c/0/face_illusion_by_west_ninja-d5lc6w2.jpg" alt="" />
+                        </div>
+                        <div class="col-10" style="padding-left: 50px;">
+                            <!-- USERNAME -->
+                            <div class="profile-nama">Nama</div>
+                            <div class="profile-jurusan">S1 Sastra Indonesia</div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div id="descPertanyaan" >
+                            <div class="selectFile" style="margin-top: 10px;">
+                                <label for="file"><img src="views/assets/images/addVideo.svg" alt=""></label>
+                                <label for="file"><img src="views/assets/images/addImages.svg" alt=""></label>
+                                <input type="file" multiple accept="video/*" name="files[]" id="file" >
+                                <input type="file" multiple accept="image/*" name="files[]" id="file" >
+                            </div>
+                            <div>
+                                <textarea id="deskripsiPertanyaan" cols="30" rows="10" placeholder="Tulis jawaban kamu disini"></textarea>
+                            </div>
+                        </div>
+                        <div id="alert">* wajib</div>
+                    </div>
+        
+                    <div class="row">
+                        <div style="margin-top: 20px; margin-left: 5px;">
+                            <h5>Referensi</h5>
+                            <h6>Tambahkan referensi agar orang lain yakin dengan jawabanmu</h6>
+                        </div>
+                        <input type="text" id="referensi" placeholder="Tulis referensi kamu disini" style="margin-bottom: 0px;">
+                        <div id="alert">* wajib</div>
+                    </div>
+                </div>
+                <button id="kirimComment">Kirim</button>
+                </div>
+            </form>
+        </div>
+      
+      <script src="views/assets/js/displayJawab.js"></script>
+      <!-- Optional JavaScript -->
+      <!-- Popper.js first, then Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+   </body>
